@@ -9,6 +9,7 @@ export const StyledProductsBlockWrapper = styled.div`
     padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
     box-sizing: border-box;
     gap: 60px;
+    margin-bottom: 48px;
 `
 
 export const StyledProductsBlockHeader = styled.div`

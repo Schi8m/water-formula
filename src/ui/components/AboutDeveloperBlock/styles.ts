@@ -9,6 +9,7 @@ export const StyledAboutDeveloperWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-block: 48px;
 `
 
 export const StyledAboutDeveloperContent = styled.div`
