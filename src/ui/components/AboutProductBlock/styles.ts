@@ -61,5 +61,6 @@ export const StyledAboutProductCardLink = styled.a`
     color: #6B8AC6;
     margin-top: 12px;
     display: flex;
+    align-items: center;
     gap: 8px;
 `   

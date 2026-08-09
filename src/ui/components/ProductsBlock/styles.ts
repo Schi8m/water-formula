@@ -146,7 +146,7 @@ export const StyledProductCardLinkBtn = styled.button`
         4px 4px 4px 0px #20294F40,
         4px 4px 4px 0px #E8E0E00D inset;
 
-    font-family: Roboto Condensed;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
     font-style: Bold;
     font-size: 14px;
@@ -156,4 +156,5 @@ export const StyledProductCardLinkBtn = styled.button`
     vertical-align: middle;
     color: #fff;
     border-radius: 12px;
+    text-transform: uppercase;
 `

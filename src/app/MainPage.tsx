@@ -8,6 +8,7 @@ import { AboutProductBlock } from '../ui/components/AboutProductBlock';
 import { AboutDeveloperBlock } from '../ui/components/AboutDeveloperBlock';
 import { SupportBlock } from '../ui/components/SupportBlock';
 import { DownloadBlock } from '../ui/components/DownloadBlock';
+import { ContactForm } from '../ui/components/ContactForm';
 
 const MAIN_BANNER_DATA = {
     title: 'Профессиональные расчёты систем ХВС/ГВС',
@@ -110,6 +111,13 @@ const DOWNLOAD_BLOCK_DATA = {
     btnTitle: 'СКАЧАТЬ ХХХ'
 }
 
+const CONTACT_FORM_DATA = {
+    title: 'ОФОРМИТЬ ЗАКАЗ',
+    subtitle: 'Оставьте заявку, и наш инженер свяжется с вами для уточнения деталей лицензирования.',
+    checkboxDescr: 'Я СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ В СООТВЕТСТВИИ С ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ.',
+    sendBtnTitle: 'отправить'
+}
+
 export function ClientPage() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -136,6 +144,7 @@ export function ClientPage() {
       <AboutDeveloperBlock {...ABOUT_DEVELOP_BLOCK} />
       <SupportBlock {...SUPPORT_BLOCK_DATA} />
       <DownloadBlock {...DOWNLOAD_BLOCK_DATA} />
+      <ContactForm {...CONTACT_FORM_DATA} />
     </div>
   );
 }
