@@ -1,0 +1,19 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+}
+
+body {
+    background-color: #080E26;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-page {
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}

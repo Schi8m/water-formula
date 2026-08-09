@@ -57,14 +57,16 @@ import '@fontsource/akt';
     justify-content: space-between;
 
     & > button:first-child {
-        box-shadow: 4px 4px 4px 0px #20294F40;
-        box-shadow: 4px 4px 4px 0px #E8E0E00D inset;
+        box-shadow: 
+            4px 4px 4px 0px #20294F40,
+            4px 4px 4px 0px #E8E0E00D inset;
         background-color: ${COLORS.MAIN.PRIMARY};
     }
 
     & > button:last-child {
-        box-shadow: 4px 4px 4px 0px #20294F40;
-        box-shadow: 4px 4px 4px 0px #E8E0E00D inset;
+        box-shadow: 
+            4px 4px 4px 0px #20294F40,
+            4px 4px 4px 0px #E8E0E00D inset;
         background-color: ${COLORS.SECONDARY.PRIMARY};
     }
  `

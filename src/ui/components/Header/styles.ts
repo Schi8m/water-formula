@@ -21,6 +21,8 @@ export const SyledHeaderWrapper = styled.div`
     height: 80px;
     gap: ${SIZES.INDENTS.EXTRA_LARGE}px;
     border-bottom: 1px solid ${COLORS.MAIN.BORDER};
+    width: 100vw;
+    box-sizing: border-box;
 
     & > svg:first-child {
         fill: ${COLORS.MAIN.TEXT_LIGHT};
