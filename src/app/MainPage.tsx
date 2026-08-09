@@ -7,6 +7,7 @@ import { ProductBlock } from '../ui/components/ProductsBlock';
 import { AboutProductBlock } from '../ui/components/AboutProductBlock';
 import { AboutDeveloperBlock } from '../ui/components/AboutDeveloperBlock';
 import { SupportBlock } from '../ui/components/SupportBlock';
+import { DownloadBlock } from '../ui/components/DownloadBlock';
 
 const MAIN_BANNER_DATA = {
     title: 'Профессиональные расчёты систем ХВС/ГВС',
@@ -102,6 +103,13 @@ const SUPPORT_BLOCK_DATA = {
     ],
 }
 
+const DOWNLOAD_BLOCK_DATA = {
+    title: 'ЗАГРУЗКА ПРОДУКТА',
+    subtitle: 'Версия 2.4.0',
+    description: 'Актуальная стабильная версия для Windows 10/11.',
+    btnTitle: 'СКАЧАТЬ ХХХ'
+}
+
 export function ClientPage() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -127,6 +135,7 @@ export function ClientPage() {
       <AboutProductBlock {...ABOUT_PRODUCTS_BLOCK} />
       <AboutDeveloperBlock {...ABOUT_DEVELOP_BLOCK} />
       <SupportBlock {...SUPPORT_BLOCK_DATA} />
+      <DownloadBlock {...DOWNLOAD_BLOCK_DATA} />
     </div>
   );
 }
