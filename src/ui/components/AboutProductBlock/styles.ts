@@ -14,6 +14,11 @@ export const StyledAboutProductCard = styled.div`
     flex: 1;
     max-width: 380px;
     align-self: stretch;
+
+   @media (max-width: 860px) {
+    width: 100%;
+    max-width: none;
+   }
 `
 
 export const StyledProductIcon = styled.div`
@@ -36,6 +41,10 @@ export const StyledAboutProductCardTitle = styled.h2`
     vertical-align: middle;
     margin-top: 36px;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+
+   @media (max-width: 860px) {
+    font-size: 20px;
+   }
 `
 
 export const StyledAboutProductCardSubtitle = styled.span`
@@ -47,6 +56,10 @@ export const StyledAboutProductCardSubtitle = styled.span`
     letter-spacing: 0px;
     vertical-align: middle;
     color: ${COLORS.SECONDARY.TEXT_DARK};
+
+   @media (max-width: 860px) {
+    font-size: 13px;
+   }
 `
 
 export const StyledAboutProductCardLink = styled.a`

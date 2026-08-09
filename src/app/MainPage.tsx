@@ -9,6 +9,7 @@ import { AboutDeveloperBlock } from '../ui/components/AboutDeveloperBlock';
 import { SupportBlock } from '../ui/components/SupportBlock';
 import { DownloadBlock } from '../ui/components/DownloadBlock';
 import { ContactForm } from '../ui/components/ContactForm';
+import mainBanner from '../../public/main_banner.png'
 
 const MAIN_BANNER_DATA = {
     title: 'Профессиональные расчёты систем ХВС/ГВС',
@@ -136,13 +137,19 @@ export function ClientPage() {
     );
   }
 
+  console.log(mainBanner);
+
   return (
     <div className='main-page'>
-      <MainBanner {...MAIN_BANNER_DATA}/>
+      <MainBanner {...MAIN_BANNER_DATA} image='/main_banner.png'/>
       <ProductBlock {...PRODUCTS_BLOCK_DATA}/>
+      <div id='about-product' />
       <AboutProductBlock {...ABOUT_PRODUCTS_BLOCK} />
+      <div id='about-developer' />
       <AboutDeveloperBlock {...ABOUT_DEVELOP_BLOCK} />
-      <SupportBlock {...SUPPORT_BLOCK_DATA} />
+      <div id='support' />
+      <SupportBlock {...SUPPORT_BLOCK_DATA} image='/support.png'/>
+      <div id='download' />
       <DownloadBlock {...DOWNLOAD_BLOCK_DATA} />
       <ContactForm {...CONTACT_FORM_DATA} />
     </div>

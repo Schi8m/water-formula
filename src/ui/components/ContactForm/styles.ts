@@ -7,6 +7,10 @@ export const StyledContactFormWrapper = styled.div`
     padding-block: 48px;
     width: 100%;
     box-sizing: border-box;
+
+    @media (max-width: 1150px) {
+        padding-inline: 64px;
+    }
 `
 
 export const StyledContactFormContent = styled.div`
@@ -18,6 +22,10 @@ export const StyledContactFormContent = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 64px;
+
+   @media (max-width: 860px) {
+    padding: 24px;
+   }
 `
 
 export const StyledContactFormText = styled.div`
@@ -40,6 +48,10 @@ export const StyledContactFormTitle = styled.h1`
     vertical-align: middle;
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+
+   @media (max-width: 860px) {
+    font-size: 32px;
+   }
 `
 
 export const StyledContactFormSubtitle = styled.span`
@@ -52,6 +64,10 @@ export const StyledContactFormSubtitle = styled.span`
     text-align: center;
     vertical-align: middle;
     color: ${COLORS.SECONDARY.TEXT_DARK};
+
+   @media (max-width: 860px) {
+    font-size: 15px;
+   }
 `
 
 export const StyledForm = styled.div`
@@ -65,6 +81,9 @@ export const FormRow = styled.div`
     flex-direction: row;
     gap: 20px;
     width: 100%;
+   @media (max-width: 860px) {
+    flex-direction: column;
+   }
 `
 
 export const StyledInput = styled.input`
@@ -75,6 +94,7 @@ export const StyledInput = styled.input`
     outline: none;
     width: 100%;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+    box-sizing: border-box;
 
     &::placeholder {
         font-family: 'Roboto Condensed', sans-serif;
@@ -86,6 +106,12 @@ export const StyledInput = styled.input`
         vertical-align: middle;
         color: #D4D2D280;
     }
+
+   @media (max-width: 860px) {
+    &::placeholder {
+        font-size: 12px;
+    }
+   }
 `
 
 export const StyledTextArea = styled.textarea`

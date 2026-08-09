@@ -32,6 +32,11 @@ export const SyledHeaderWrapper = styled.div`
     & > svg:nth-child(2) {
         stroke: ${COLORS.MAIN.TEXT_LIGHT};
         width: 60px;
+
+        @media (max-width: 860px) {
+            display: none;
+        }
+
     }
 `
 
@@ -41,9 +46,13 @@ export const StyledHeaderContent = styled.nav`
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+
+    @media (max-width: 860px) {
+        display: none;
+    }
 `
 
-export const StyledRoute = styled.button`
+export const StyledRoute = styled.a`
     border: none;
     outline: none;
     background-color: transparent;
@@ -58,4 +67,21 @@ export const StyledRoute = styled.button`
     cursor: pointer;
     height: 80px;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+`
+
+export const StyledMobileNavIcon = styled.div`
+    display: none;
+    @media (max-width: 860px) {
+        display: block;
+    }
+`
+
+export const StyledPhoneSvg = styled.div`
+    @media (max-width: 860px) {
+        display: none;
+    }
 `

@@ -5,12 +5,14 @@ export interface IMainBannerProps {
     title: string;
     subtitle: string;
     buttons: string[];
+    image: string;
 }
 
 export const MainBanner: React.FC<IMainBannerProps> = ({
     title = '',
     subtitle = '',
-    buttons = []
+    buttons = [],
+    image
 }) => {
     return (
         <StyledMainBannerWrapper>
@@ -32,7 +34,7 @@ export const MainBanner: React.FC<IMainBannerProps> = ({
                 </StyledMainBannerButtonsBlock>
             </StyledMainBannerLeftBlock>
             <StyledMainBannerRightBlock>
-                <img src={mainBanner}/>
+                <img src={image}/>
             </StyledMainBannerRightBlock>
         </StyledMainBannerWrapper>
     )

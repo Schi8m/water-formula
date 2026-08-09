@@ -10,13 +10,15 @@ export interface ISupportCard {
 export interface ISupportBlockProps {
     title: string;
     subtitle: string;
-    cards: ISupportCard[]
+    cards: ISupportCard[],
+    image: string;
 }
 
 export const SupportBlock: React.FC<ISupportBlockProps> = ({
     title = '',
     subtitle = '',
-    cards = []
+    cards = [],
+    image
 }) => {
     return (
         <StyledSupportBlockWrapper>
@@ -37,7 +39,7 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
                 </StyledSupportCards>
             </StyledSupportInfoBlock>
             <StyledSupportImgBlock>
-                <img />
+                <img src={image}/>
             </StyledSupportImgBlock>
         </StyledSupportBlockWrapper>
     )

@@ -32,6 +32,10 @@ export const StyledProductsBlockTitle = styled.h1`
     vertical-align: middle;
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+
+   @media (max-width: 860px) {
+    font-size: 32px;
+   }
 `
 
 export const StyledProductsBlockSubtitle = styled.span`
@@ -44,6 +48,10 @@ export const StyledProductsBlockSubtitle = styled.span`
     text-align: center;
     vertical-align: middle;
     color: ${COLORS.SECONDARY.TEXT_DARK};
+
+   @media (max-width: 860px) {
+    font-size: 15px;
+   }
 `
 
 export const StyledProductsCardContent = styled.div`
@@ -51,7 +59,12 @@ export const StyledProductsCardContent = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 20px;;
+
+    @media (max-width: 1150px) {
+        flex-direction: column;
+        width: 100%;
+    }
 `
 
 export const StyledProductCard = styled.div`
@@ -63,6 +76,12 @@ export const StyledProductCard = styled.div`
     border: 1px solid #C4C6CF66;
     background: #6B8AC633;
     max-width: 380px;
+
+    @media (max-width: 1150px) {
+        max-width: 100%;
+        width: 100%;
+        flex: 1;
+    }
 `
 
 export const StyledProductCardTitle = styled.h2`
@@ -78,11 +97,16 @@ export const StyledProductCardTitle = styled.h2`
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
     margin-bottom: 40px;
+
+   @media (max-width: 860px) {
+    font-size: 20px;
+   }
 `
 
 export const StyledProductCardCost = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: flex-end;
     color: ${COLORS.MAIN.TEXT_LIGHT};
     margin-bottom: 56px;
@@ -99,10 +123,12 @@ export const StyledProductCardCostTitle = styled.h3`
     line-height: 48px;
     letter-spacing: -4px;
     vertical-align: middle;
+    white-space: nowrap;
 `
 
 export const StyledProductCardCostDescription = styled.span`
-
+    white-space: nowrap;
+    font-family: 'Roboto Condensed', sans-serif;
 `
 
 export const StyledFunctionsList = styled.div`

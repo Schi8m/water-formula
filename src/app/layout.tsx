@@ -2,6 +2,7 @@
 import type { Metadata } from 'next';
 import './index.css';
 import { Header } from '../ui/components/Header';
+import { Footer } from '../ui/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Water Formula - Ваш гид по воде',
@@ -19,12 +20,20 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
+const navs = [
+  {title: 'О продукте', link: '#about-product'},
+  {title: 'Разработчик', link: '#about-developer'},
+  {title: 'Поддержка', link: '#support'},
+  {title: 'Скачать', link: '#download'}
+]
+
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ru">
       <body>
-        <Header />
+        <Header routes={navs}/>
         {children}
+        <Footer copyright={"© 2026 формула воды\n[ ВСЕ ПРАВА ЗАЩИЩЕНЫ ]\nENGINEERING SOFTWARE CORE V4.2"} />
       </body>
     </html>
   );

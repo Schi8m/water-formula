@@ -36,6 +36,10 @@ export const StyledAboutDeveloperTitle = styled.h1`
     vertical-align: middle;
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+
+   @media (max-width: 860px) {
+    font-size: 32px;
+   }
 `
 
 export const StyledAboutDeveloperPartsBlock = styled.div`
@@ -44,6 +48,10 @@ export const StyledAboutDeveloperPartsBlock = styled.div`
     gap: 46px;
     padding-block: 16px;
     align-items: flex-start;
+
+   @media (max-width: 860px) {
+   flex-direction: column;
+   }
 `
 
 export const StyledAboutDeveloperPart = styled.span`

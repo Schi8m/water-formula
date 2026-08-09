@@ -12,6 +12,10 @@ export const StyledSupportBlockWrapper = styled.div`
     padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
     padding-block: 48px;
     box-sizing: border-box;
+
+   @media (max-width: 860px) {
+    flex-direction: column;
+   }
 `
 
 export const StyledSupportInfoBlock = styled.div`
@@ -24,6 +28,13 @@ export const StyledSupportInfoBlock = styled.div`
 
 export const StyledSupportImgBlock = styled.div`
     flex: 40;
+    & > img {
+        max-width: 100%;
+    }
+
+   @media (max-width: 860px) {
+    display: none;
+   }
 `
 
 export const StyledSupportTitle = styled.h1`
@@ -39,6 +50,10 @@ export const StyledSupportTitle = styled.h1`
     vertical-align: middle;
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+
+   @media (max-width: 860px) {
+    font-size: 32px;
+   }
 `
 
 export const StyledSupportSubtitle = styled.span`
@@ -51,6 +66,10 @@ export const StyledSupportSubtitle = styled.span`
     vertical-align: middle;
     color: ${COLORS.SECONDARY.TEXT_DARK};
     margin-top: 20px;
+
+   @media (max-width: 860px) {
+    font-size: 15px;
+   }
 `
 
 export const StyledSupportCards = styled.div`

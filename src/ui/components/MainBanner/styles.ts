@@ -11,6 +11,10 @@ import '@fontsource/akt';
     background-color: transparent;
     gap: 26px;
     box-sizing: border-box;
+
+   @media (max-width: 860px) {
+      flex-direction: column;
+   }
  `
 
  export const StyledMainBannerLeftBlock = styled.div`
@@ -36,6 +40,10 @@ import '@fontsource/akt';
     vertical-align: middle;
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+
+   @media (max-width: 860px) {
+      font-size: 32px;
+   }
  `
 
  export const StyledMainBannerSubtitle = styled.span`
@@ -47,6 +55,10 @@ import '@fontsource/akt';
     letter-spacing: 0px;
     vertical-align: middle;
     color: ${COLORS.SECONDARY.TEXT_DARK};
+
+   @media (max-width: 860px) {
+      font-size: 15px;
+   }
  `
 
  export const StyledMainBannerButtonsBlock = styled.div`
@@ -69,6 +81,10 @@ import '@fontsource/akt';
             4px 4px 4px 0px #E8E0E00D inset;
         background-color: ${COLORS.SECONDARY.PRIMARY};
     }
+
+   @media (max-width: 860px) {
+      flex-direction: column;
+   }
  `
 
  export const StyledMainBannerButton = styled.button`
@@ -90,6 +106,13 @@ import '@fontsource/akt';
     gap: 15px;
     align-items: center;
     justify-content: center;
+
+   @media (max-width: 860px) {
+      width: 100%;
+      min-height: 48px;
+      max-height: 48px;
+   }
+    
  `
 
  export const StyledMainBannerRightBlock = styled.div`
@@ -100,4 +123,10 @@ import '@fontsource/akt';
         object-fit: cover;
         max-width: 100%;
     }
+
+   @media (max-width: 860px) {
+    & > img {
+      width: 250px;
+   }
+   }
  `
