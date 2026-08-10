@@ -216,4 +216,10 @@ export const StyledSendButton = styled.button`
     height: 80px;
     width: 100%;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .3s ease;
+
+    &:hover {
+        background-color: #0649CA;
+    }
 `

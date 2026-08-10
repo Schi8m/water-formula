@@ -70,4 +70,10 @@ export const StyledDownloadBlockButton = styled.button`
     color: ${COLORS.MAIN.TEXT_LIGHT};
     height: 65px;
     width: 370px;
+    transition: background-color .3s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0649CA;
+    }
 `

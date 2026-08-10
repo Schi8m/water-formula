@@ -4,16 +4,18 @@ export interface IAboutDeveloperProps {
     title: string;
     firstPart: string;
     secondPart: string;
+    animate?:boolean;
 }
 
 export const AboutDeveloperBlock: React.FC<IAboutDeveloperProps> = ({
     title = '',
     firstPart = '',
-    secondPart = ''
+    secondPart = '',
+    animate = false
 }) => {
     return (
         <StyledAboutDeveloperWrapper>
-            <StyledAboutDeveloperContent>
+            <StyledAboutDeveloperContent animate={animate}>
                 <StyledAboutDeveloperTitle>{title}</StyledAboutDeveloperTitle>
                 <StyledAboutDeveloperPartsBlock>
                     <StyledAboutDeveloperPart>{firstPart}</StyledAboutDeveloperPart>

@@ -12,20 +12,22 @@ export interface ISupportBlockProps {
     subtitle: string;
     cards: ISupportCard[],
     image: string;
+    animate?: boolean;
 }
 
 export const SupportBlock: React.FC<ISupportBlockProps> = ({
     title = '',
     subtitle = '',
     cards = [],
-    image
+    image,
+    animate = false
 }) => {
     return (
         <StyledSupportBlockWrapper>
-            <StyledSupportInfoBlock>
+            <StyledSupportInfoBlock animate={animate}>
                 <StyledSupportTitle>{title}</StyledSupportTitle>
                 <StyledSupportSubtitle>{subtitle}</StyledSupportSubtitle>
-                <StyledSupportCards>
+                <StyledSupportCards animate={animate}>
                     {cards.map(c => <StyledSupportCard>
                         {c?.icon}
                         <StyledSupportCardText>
@@ -38,7 +40,7 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
                     </StyledSupportCard>)}
                 </StyledSupportCards>
             </StyledSupportInfoBlock>
-            <StyledSupportImgBlock>
+            <StyledSupportImgBlock animate={animate}>
                 <img src={image}/>
             </StyledSupportImgBlock>
         </StyledSupportBlockWrapper>

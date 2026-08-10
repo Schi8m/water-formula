@@ -1,7 +1,18 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { COLORS, SIZES } from "../../variables";
 import '@fontsource/akt';
 
+const FLOW_IN = keyframes`
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+`
 export const StyledAboutDeveloperWrapper = styled.div`
     width: 100%;
     padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
@@ -12,7 +23,11 @@ export const StyledAboutDeveloperWrapper = styled.div`
     padding-block: 48px;
 `
 
-export const StyledAboutDeveloperContent = styled.div`
+export const StyledAboutDeveloperContent = styled.div.attrs<{
+    animate: boolean
+}>(props => ({
+    animate: props?.animate
+}))`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -22,6 +37,9 @@ export const StyledAboutDeveloperContent = styled.div`
     border: 1px solid #2C3E5026;
     padding: 48px;
     box-sizing: border-box;
+    opacity: 0;
+
+    animation: ${({animate}) => animate ? css`${FLOW_IN} .5s ease-in .2s forwards` : 'none'};
 `
 
 export const StyledAboutDeveloperTitle = styled.h1`

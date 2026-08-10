@@ -1,6 +1,19 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { COLORS, SIZES } from "../../variables";
 import '@fontsource/akt';
+
+
+const SLIDE_IN_TOP = keyframes`
+    from {
+        transform: translateY(80%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+`
 
 export const StyledProductsBlockWrapper = styled.div`
     display: flex;
@@ -54,12 +67,28 @@ export const StyledProductsBlockSubtitle = styled.span`
    }
 `
 
-export const StyledProductsCardContent = styled.div`
+export const StyledProductsCardContent = styled.div.attrs<{
+    animate: boolean
+}>((props) => ({
+    animate: props.animate
+}))`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;;
+    gap: 20px;
+
+    & > div:first-child {
+        animation: ${({animate}) => animate ? css`${SLIDE_IN_TOP} .5s ease-in-out forwards` : 'none'};
+    }
+
+    & > div:nth-child(2) {
+        animation: ${({animate}) => animate ? css`${SLIDE_IN_TOP} .5s ease-in-out .25s forwards` : 'none'};
+    }
+
+    & > div:last-child {
+        animation: ${({animate}) => animate ? css`${SLIDE_IN_TOP} .5s ease-in-out .5s forwards` : 'none'};
+    }
 
     @media (max-width: 1150px) {
         flex-direction: column;
@@ -73,9 +102,96 @@ export const StyledProductCard = styled.div`
     padding: 48px;
     box-sizing: border-box;
     border-radius: 20px;
-    border: 1px solid #C4C6CF66;
     background: #6B8AC633;
     max-width: 380px;
+    transition: all .3s ease;
+    position: relative;
+    box-shadow: 0px 8px 32px 0px #0000000D;
+    backdrop-filter: blur(8px);
+    opacity: 0;
+
+    &:hover {
+        background-color: #6B8AC640;
+    }
+
+     &::before {
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        padding: 1px; /* Толщина рамки */
+        background: radial-gradient(
+        circle at top left,
+        rgba(255, 255, 255, 0.5),
+        transparent 70%,
+        rgba(255, 255, 255, 0.5) 90%,
+        transparent 100%
+        );
+        -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+        mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        cursor: pointer;
+    }
+
+    &:nth-child(2) {
+        cursor: pointer;
+        background-color: #6B8AC680;
+        &::before {
+            pointer-events: none;
+            cursor: pointer;
+            content: '';
+            position: absolute;
+            inset: 0; 
+            border-radius: 20px;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(200, 212, 236, 0.4) 0%, rgba(107, 138, 198, 0.4) 100%);
+            backdrop-filter: blur(200px);
+            z-index: -1;
+        }
+
+        &::after {
+            cursor: pointer;
+            content: 'РЕКОМЕНДУЕМ';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #20294F;
+            padding-inline: 25px;
+            padding-block: 8px;
+            color: #fff;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 500;
+            font-style: Medium;
+            font-size: 11px;
+            line-height: 13.2px;
+            letter-spacing: 1.1px;
+            vertical-align: middle;
+            border-top-right-radius: 18px;
+            border-bottom-left-radius: 18px;
+
+        }
+
+        &:hover {
+            box-shadow: 0 0 70px 1px rgba(255, 255, 255, 0.3);
+        }
+
+        & button {
+            background-color: #20294F;
+            box-shadow: 
+                4px 4px 4px 0px #20294F40,
+                4px 4px 4px 0px #E8E0E00D inset;
+                
+            &:hover {
+                background-color: #0649CA;
+            }
+        }
+    }
 
     @media (max-width: 1150px) {
         max-width: 100%;
@@ -183,4 +299,10 @@ export const StyledProductCardLinkBtn = styled.button`
     color: #fff;
     border-radius: 12px;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: #0649CA;
+    }
 `

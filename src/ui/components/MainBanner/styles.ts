@@ -1,16 +1,39 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { COLORS, ROUNDS, SIZES } from "../../variables";
 import '@fontsource/akt';
 
+const SLIDE_IN_RIGHT = keyframes`
+   from {
+      transform: translateX(-50%);
+      opacity: 0;
+   }
+   to {
+      transform: translateX(0);
+      opacity: 1;
+   }
+`
+
+const SLIDE_IN_LEFT = keyframes`
+   from {
+      transform: translateX(50%);
+      opacity: 0;
+   }
+   to {
+      transform: translateX(0);
+      opacity: 1;
+   }
+`
+
  export const StyledMainBannerWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
-    background-color: transparent;
-    gap: 26px;
-    box-sizing: border-box;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
+   background-color: transparent;
+   gap: 26px;
+   box-sizing: border-box;
+   margin-top: 45px;
 
    @media (max-width: 860px) {
       flex-direction: column;
@@ -25,6 +48,9 @@ import '@fontsource/akt';
     padding-block: 75px;
     gap: 50px;
     justify-content: space-between;
+    opacity: 0;
+
+    animation: ${SLIDE_IN_RIGHT} .5s ease-in-out forwards;
  `
 
  export const StyledMainBannerTitle = styled.h1`
@@ -69,17 +95,24 @@ import '@fontsource/akt';
     justify-content: space-between;
 
     & > button:first-child {
-        box-shadow: 
-            4px 4px 4px 0px #20294F40,
-            4px 4px 4px 0px #E8E0E00D inset;
-        background-color: ${COLORS.MAIN.PRIMARY};
+      box-shadow: 
+         4px 4px 4px 0px #20294F40,
+         4px 4px 4px 0px #E8E0E00D inset;
+      background-color: ${COLORS.MAIN.PRIMARY};
+
+      &:hover {
+         background-color: #0649CA;
+      }
     }
 
     & > button:last-child {
-        box-shadow: 
-            4px 4px 4px 0px #20294F40,
-            4px 4px 4px 0px #E8E0E00D inset;
-        background-color: ${COLORS.SECONDARY.PRIMARY};
+      box-shadow: 
+         4px 4px 4px 0px #20294F40,
+         4px 4px 4px 0px #E8E0E00D inset;
+      background-color: ${COLORS.SECONDARY.PRIMARY};
+      &:hover {
+         background-color: #0649CA;
+      }
     }
 
    @media (max-width: 860px) {
@@ -88,24 +121,26 @@ import '@fontsource/akt';
  `
 
  export const StyledMainBannerButton = styled.button`
-    flex: 1;
-    border: none;
-    outline: none;
-    height: 65px;
-    border-radius: ${ROUNDS.ROUNDS.LARGE}px;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 14px;
-    line-height: 16.8px;
-    letter-spacing: 1.4px;
-    text-align: center;
-    vertical-align: middle;
-    color: #FFF;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
+   flex: 1;
+   border: none;
+   outline: none;
+   height: 65px;
+   border-radius: ${ROUNDS.ROUNDS.LARGE}px;
+   font-family: 'Roboto Condensed', sans-serif;
+   font-weight: 700;
+   font-style: Bold;
+   font-size: 14px;
+   line-height: 16.8px;
+   letter-spacing: 1.4px;
+   text-align: center;
+   vertical-align: middle;
+   color: #FFF;
+   display: flex;
+   gap: 15px;
+   align-items: center;
+   justify-content: center;
+   transition: background-color .3s ease;
+   cursor: pointer;
 
    @media (max-width: 860px) {
       width: 100%;
@@ -118,6 +153,32 @@ import '@fontsource/akt';
  export const StyledMainBannerRightBlock = styled.div`
     flex: 1;
 
+    opacity: 0;
+    animation: ${SLIDE_IN_LEFT} .5s ease-in-out forwards;
+    /* background: radial-gradient(50% 50% at 50% 50%, rgba(200, 212, 236, 0.5) 0%, rgba(0,0,0,0) 100%); */
+    /* backdrop-filter: blur(1000px); */
+ 
+    &::before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      right: -80px;
+      bottom: -80px;
+
+      z-index: -1;
+      background-image: url(/backdrop_banner.png);
+      background-position: center;
+      background-size: contain;
+      opacity: 1;
+      transition: opacity .3s ease;
+   }
+   &:hover {
+      &::before {
+         opacity: .5;
+      }
+   }
     & > img {
         object-position: center;
         object-fit: cover;

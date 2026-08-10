@@ -1,16 +1,6 @@
 import styled, { keyframes } from "styled-components";
-import { COLORS, ROUNDS, SIZES } from "../../variables";
+import { COLORS, SIZES } from "../../variables";
 
-const SLIDE_IN = keyframes`
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-`
 
 export const SyledHeaderWrapper = styled.div`
     background-color: ${COLORS.MAIN.BG};
@@ -71,6 +61,12 @@ export const StyledRoute = styled.a`
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    transition: all .3s ease;
+
+    &:hover {
+        scale: 1.05;
+        color: white;
+    }
 `
 
 export const StyledMobileNavIcon = styled.div`

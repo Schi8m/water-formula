@@ -1,6 +1,6 @@
 import type { JSX } from "react/jsx-runtime";
 import { StyledProductsBlockHeader, StyledProductsBlockSubtitle, StyledProductsBlockTitle, StyledProductsBlockWrapper, StyledProductsCardContent } from "../ProductsBlock/styles";
-import { StyledAboutProductCard, StyledAboutProductCardLink, StyledAboutProductCardSubtitle, StyledAboutProductCardTitle, StyledProductIcon } from "./styles";
+import { StyledAboutProductCard, StyledAboutProductCardLink, StyledAboutProductCardSubtitle, StyledAboutProductCardTitle, StyledAboutProductsCardContent, StyledProductIcon, StyledProgress } from "./styles";
 
 export interface IAboutProductCard {
     icon: JSX.Element;
@@ -15,12 +15,14 @@ export interface IAboutProductProps {
     title: string;
     subtitle: string;
     cards: IAboutProductCard[]
+    animate?: boolean;
 }
 
 export const AboutProductBlock: React.FC<IAboutProductProps> = ({
     title = '',
     subtitle = '',
-    cards = []
+    cards = [],
+    animate = false
 }) => {
     return (
         <StyledProductsBlockWrapper>
@@ -28,16 +30,17 @@ export const AboutProductBlock: React.FC<IAboutProductProps> = ({
                 <StyledProductsBlockTitle>{title}</StyledProductsBlockTitle>
                 <StyledProductsBlockSubtitle>{subtitle}</StyledProductsBlockSubtitle>
             </StyledProductsBlockHeader>
-            <StyledProductsCardContent>
+            <StyledAboutProductsCardContent startAnimation={animate}>
                 {
                     cards.map(c => <StyledAboutProductCard>
                         <StyledProductIcon>{c?.icon ?? <></>}</StyledProductIcon>
                         <StyledAboutProductCardTitle>{c?.title}</StyledAboutProductCardTitle>
                         <StyledAboutProductCardSubtitle>{c?.subtitle}</StyledAboutProductCardSubtitle>
-                        <StyledAboutProductCardLink>{c?.linkTitle}{c?.linkIcon}</StyledAboutProductCardLink>
+                        {c?.linkTitle ? <StyledAboutProductCardLink>{c?.linkTitle}{c?.linkIcon}</StyledAboutProductCardLink> 
+                        : <StyledProgress animate={animate}/>}
                     </StyledAboutProductCard>)
                 }
-            </StyledProductsCardContent>
+            </StyledAboutProductsCardContent>
         </StyledProductsBlockWrapper>
     )
 }

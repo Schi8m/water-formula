@@ -11,13 +11,15 @@ export interface IProductBlockProps {
     subtitle: string;
     products: IProduct[];
     linkBtnTitle: string;
+    animate?: boolean;
 }
 
 export const ProductBlock: React.FC<IProductBlockProps> = ({
     title = '',
     subtitle = '',
     products = [],
-    linkBtnTitle = ''
+    linkBtnTitle = '',
+    animate = false
 }) => {
     function formatNumberWithSpaces(num: number): string {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -29,8 +31,8 @@ export const ProductBlock: React.FC<IProductBlockProps> = ({
                 <StyledProductsBlockTitle>{title}</StyledProductsBlockTitle>
                 <StyledProductsBlockSubtitle>{subtitle}</StyledProductsBlockSubtitle>
             </StyledProductsBlockHeader>
-            <StyledProductsCardContent>
-                {products.map(p => <StyledProductCard>
+            <StyledProductsCardContent animate={animate}>
+                {products.map((p, p_index) => <StyledProductCard>
                     <StyledProductCardTitle>{p?.title}</StyledProductCardTitle>
                     <StyledProductCardCost>
                         <StyledProductCardCostTitle>{formatNumberWithSpaces(p?.cost)} ₽</StyledProductCardCostTitle>
@@ -38,9 +40,14 @@ export const ProductBlock: React.FC<IProductBlockProps> = ({
                     </StyledProductCardCost>
                     <StyledFunctionsList>
                         {p?.functions?.map(f => <StyledProductFunction>
+                            {p_index !== 1 ?
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.7" d="M7.16667 12.1667L13.0417 6.29167L11.875 5.125L7.16667 9.83333L4.79167 7.45833L3.625 8.625L7.16667 12.1667ZM8.33333 16.6667C7.18056 16.6667 6.09722 16.4479 5.08333 16.0104C4.06944 15.5729 3.1875 14.9792 2.4375 14.2292C1.6875 13.4792 1.09375 12.5972 0.65625 11.5833C0.21875 10.5694 0 9.48611 0 8.33333C0 7.18056 0.21875 6.09722 0.65625 5.08333C1.09375 4.06944 1.6875 3.1875 2.4375 2.4375C3.1875 1.6875 4.06944 1.09375 5.08333 0.65625C6.09722 0.21875 7.18056 0 8.33333 0C9.48611 0 10.5694 0.21875 11.5833 0.65625C12.5972 1.09375 13.4792 1.6875 14.2292 2.4375C14.9792 3.1875 15.5729 4.06944 16.0104 5.08333C16.4479 6.09722 16.6667 7.18056 16.6667 8.33333C16.6667 9.48611 16.4479 10.5694 16.0104 11.5833C15.5729 12.5972 14.9792 13.4792 14.2292 14.2292C13.4792 14.9792 12.5972 15.5729 11.5833 16.0104C10.5694 16.4479 9.48611 16.6667 8.33333 16.6667ZM8.33333 15C10.1944 15 11.7708 14.3542 13.0625 13.0625C14.3542 11.7708 15 10.1944 15 8.33333C15 6.47222 14.3542 4.89583 13.0625 3.60417C11.7708 2.3125 10.1944 1.66667 8.33333 1.66667C6.47222 1.66667 4.89583 2.3125 3.60417 3.60417C2.3125 4.89583 1.66667 6.47222 1.66667 8.33333C1.66667 10.1944 2.3125 11.7708 3.60417 13.0625C4.89583 14.3542 6.47222 15 8.33333 15Z" fill="#D4D2D2"/>
                             </svg>
+                             : <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="15" height="15" rx="7.5" fill="#6B8AC6"/>
+                                <path d="M5.66172 12.009L1.38672 7.73398L2.45547 6.66523L5.66172 9.87148L12.543 2.99023L13.6117 4.05898L5.66172 12.009Z" fill="white"/>
+                            </svg>}
                             {f}
                         </StyledProductFunction>)}
                     </StyledFunctionsList>

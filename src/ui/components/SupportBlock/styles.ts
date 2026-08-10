@@ -1,7 +1,28 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { COLORS, SIZES } from "../../variables";
 import '@fontsource/akt';
 
+const SLIDE_IN_RIGHT = keyframes`
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+`
+
+const SLIDE_IN_LEFT = keyframes`
+    from {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+`
 
 export const StyledSupportBlockWrapper = styled.div`
     width: 100%;
@@ -18,20 +39,53 @@ export const StyledSupportBlockWrapper = styled.div`
    }
 `
 
-export const StyledSupportInfoBlock = styled.div`
+export const StyledSupportInfoBlock = styled.div.attrs<{
+    animate?: boolean
+}>(props => ({
+    animate: props?.animate
+}))`
     flex: 60;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    opacity: ${({animate}) => animate ? 1 : 0};
+    transition: all .5s ease;
 `
 
-export const StyledSupportImgBlock = styled.div`
+export const StyledSupportImgBlock = styled.div.attrs<{
+    animate?: boolean;
+}>(props => ({
+    animate: props?.animate
+}))`
     flex: 40;
     & > img {
         max-width: 100%;
     }
+    opacity: 0;
+    animation: ${({animate}) => animate ? css`${SLIDE_IN_LEFT} .5s ease-in-out .3s forwards` : 'none'};
+    &::before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      right: -100px;
+      bottom: -100px;
 
+      z-index: -1;
+      background-image: url(/backdrop_card.png);
+      background-position: center;
+      background-size: contain;
+      opacity: 1;
+      transition: opacity .3s ease;
+      background-repeat: no-repeat;
+   }
+   &:hover {
+      &::before {
+         opacity: .5;
+      }
+   }
    @media (max-width: 860px) {
     display: none;
    }
@@ -72,22 +126,72 @@ export const StyledSupportSubtitle = styled.span`
    }
 `
 
-export const StyledSupportCards = styled.div`
+export const StyledSupportCards = styled.div.attrs<{
+    animate?: boolean
+}>(props => ({
+    animate: props?.animate
+}))`
     display: flex;
     flex-direction: column;
     gap: 32px;
     width: 100%;
+    margin-top: 32px;
+
+    & > div:first-child {
+        opacity: 0;
+        animation: ${({animate}) => animate ? css`${SLIDE_IN_RIGHT} .5s ease-in-out .3s forwards` : 'none'};
+    }
+
+    & > div:last-child {
+        opacity: 0;
+        animation: ${({animate}) => animate ? css`${SLIDE_IN_RIGHT} .5s ease-in-out .6s forwards` : 'none'};
+    }
 `
 
 export const StyledSupportCard = styled.div`
-    padding: 32px;
+    padding-inline: 32px;
+    padding-block: 64px;
     border-radius: 16px;
     background-color: #6B8AC633;
-    border: 1px solid #C4C6CF4D;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 32px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .3s ease;
+
+    box-shadow: 0px 8px 32px 0px #0000000D;
+    backdrop-filter: blur(8px);
+
+    &::before {
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        padding: 1px; /* Толщина рамки */
+        background: radial-gradient(
+        circle at top left,
+        rgba(255, 255, 255, 0.5),
+        transparent 70%,
+        rgba(255, 255, 255, 0.5) 90%,
+        transparent 100%
+        );
+        -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+        mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+
+    &:hover {
+        background-color: #6B8AC666;
+    }
 `
 
 export const StyledSupportCardText = styled.div`

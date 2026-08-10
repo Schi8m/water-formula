@@ -4,11 +4,27 @@ html, body {
     overscroll-behavior: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #080E26;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image:
+        url(/waves1.png),
+        url(/waves2.png),
+        url(/waves3.png);
+
+    background-position: 
+        top center,    /* Первая картинка прижата к верху */
+        center center, /* Вторая по центру */
+        bottom center; 
+
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .main-page {
