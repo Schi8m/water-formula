@@ -1,4 +1,3 @@
-// src/components/ClientPage.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -10,6 +9,7 @@ import { SupportBlock } from '../ui/components/SupportBlock';
 import { DownloadBlock } from '../ui/components/DownloadBlock';
 import { ContactForm } from '../ui/components/ContactForm';
 import { useInView } from 'react-intersection-observer';
+import { Loader } from '../ui/components/Loader';
 
 
 const MAIN_BANNER_DATA = {
@@ -126,8 +126,10 @@ export function ClientPage() {
   const [animateAboutProductBlock, setAnimateAboutProductBlock] = useState(false);
   const [animateAboutDeveloperBlock, setAnimateAboutDeveloperBlock] = useState(false);
   const [animateSuppoprtBlock, setAnimateSupportBlock] = useState(false);
+  const [animateContacts, setAnimateContacts] = useState(false);
+  const [animateDownloads, setAnimateDownloads] = useState(false);
 
-   const { ref: productTriggerRef } = useInView({
+  const { ref: productTriggerRef } = useInView({
     rootMargin: '0px 0px -300px 0px',
     triggerOnce: true,
     onChange: (inView: boolean) => {
@@ -167,18 +169,38 @@ export function ClientPage() {
     }
   });
 
+  const { ref: contactsTriggerRef } = useInView({
+    rootMargin: '0px 0px -300px 0px',
+    triggerOnce: true,
+    onChange: (inView: boolean) => {
+      if (inView) {
+        setAnimateContacts(true)
+      }
+    }
+  });
+
+  const { ref: downloadsTriggerRef } = useInView({
+    rootMargin: '0px 0px -300px 0px',
+    triggerOnce: true,
+    onChange: (inView: boolean) => {
+      if (inView) {
+        setAnimateDownloads(true)
+      }
+    }
+  });
+
   useEffect(() => {
     // Имитация загрузки клиентских данных
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1);
 
     return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
     return (
-      <div>Loading ...</div>
+      <div style={{ width: '100%', height: '80vh', backgroundColor: '#080E26' }}/>
     );
   }
 
@@ -194,9 +216,10 @@ export function ClientPage() {
       <AboutDeveloperBlock {...ABOUT_DEVELOP_BLOCK} animate={animateAboutDeveloperBlock}/>
       <div id='support' ref={supportTriggerRef} style={{ height: '1px' }}/>
       <SupportBlock {...SUPPORT_BLOCK_DATA} image='/support.png' animate={animateSuppoprtBlock}/>
-      <div id='download' />
-      <DownloadBlock {...DOWNLOAD_BLOCK_DATA} />
-      <ContactForm {...CONTACT_FORM_DATA} />
+      <div id='download' ref={downloadsTriggerRef} style={{ height: '1px' }}/>
+      <DownloadBlock {...DOWNLOAD_BLOCK_DATA} animate={animateDownloads}/>
+      <div id='contacts' ref={contactsTriggerRef} style={{ height: '1px' }}/>
+      <ContactForm {...CONTACT_FORM_DATA} animate={animateContacts}/>
     </div>
   );
 }

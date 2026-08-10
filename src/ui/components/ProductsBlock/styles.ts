@@ -76,7 +76,7 @@ export const StyledProductsCardContent = styled.div.attrs<{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 64px;
 
     & > div:first-child {
         animation: ${({animate}) => animate ? css`${SLIDE_IN_TOP} .5s ease-in-out forwards` : 'none'};
@@ -103,7 +103,7 @@ export const StyledProductCard = styled.div`
     box-sizing: border-box;
     border-radius: 20px;
     background: #6B8AC633;
-    max-width: 380px;
+    max-width: 400px;
     transition: all .3s ease;
     position: relative;
     box-shadow: 0px 8px 32px 0px #0000000D;
@@ -188,7 +188,7 @@ export const StyledProductCard = styled.div`
                 4px 4px 4px 0px #E8E0E00D inset;
                 
             &:hover {
-                background-color: #0649CA;
+                background-color: #244988;
             }
         }
     }
@@ -303,6 +303,6 @@ export const StyledProductCardLinkBtn = styled.button`
     transition: all .3s ease;
 
     &:hover {
-        background-color: #0649CA;
+        background-color: #244988;
     }
 `

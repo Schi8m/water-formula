@@ -58,9 +58,12 @@ export const StyledSupportImgBlock = styled.div.attrs<{
 }>(props => ({
     animate: props?.animate
 }))`
+    position: relative;
     flex: 40;
+    max-width: 420px;
     & > img {
         max-width: 100%;
+        max-height: 600px;
     }
     opacity: 0;
     animation: ${({animate}) => animate ? css`${SLIDE_IN_LEFT} .5s ease-in-out .3s forwards` : 'none'};

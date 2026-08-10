@@ -6,16 +6,18 @@ export interface IContactFormProps {
     subtitle: string;
     checkboxDescr: string;
     sendBtnTitle: string;
+    animate?: boolean;
 }
 
 export const ContactForm: React.FC<IContactFormProps> = ({
     title = '',
     subtitle = '',
     checkboxDescr = '',
-    sendBtnTitle = ''
+    sendBtnTitle = '',
+    animate = false
 }) => {
     return (
-        <StyledContactFormWrapper>
+        <StyledContactFormWrapper animate={animate}>
             <StyledContactFormContent>
                 <StyledContactFormText>
                     <StyledContactFormTitle>{title}</StyledContactFormTitle>

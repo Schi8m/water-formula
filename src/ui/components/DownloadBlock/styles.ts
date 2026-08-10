@@ -1,5 +1,17 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { COLORS, SIZES } from "../../variables";
+
+const FLOW_IN = keyframes`
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+`
 
 export const StyledDownloadBlockWrapper = styled.div`
     width: 100%;
@@ -11,7 +23,12 @@ export const StyledDownloadBlockWrapper = styled.div`
     align-items: center;
     gap: 64px;
 `
-export const StyledDownloadBlockContent = styled.div`
+
+export const StyledDownloadBlockContent = styled.div.attrs<{
+    animate?: boolean
+}>(props => ({
+    animate: props?.animate
+}))`
     background-color: #6B8AC680;
     border-radius: 20px;
     border: 1px solid #C4C6CF66;
@@ -22,6 +39,9 @@ export const StyledDownloadBlockContent = styled.div`
     align-items: center;
     width: 100%;
     padding: 32px;
+    opacity: 0;
+
+    animation: ${({animate}) => animate ? css`${FLOW_IN} .5s ease-in .2s forwards` : 'none'};
 `
 
 export const StyledDownloadBlockSubtitle = styled.span`
@@ -74,6 +94,6 @@ export const StyledDownloadBlockButton = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: #0649CA;
+        background-color: #244988;
     }
 `

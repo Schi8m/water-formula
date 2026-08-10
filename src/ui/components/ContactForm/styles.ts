@@ -1,12 +1,31 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import '@fontsource/akt';
 import { COLORS } from "../../variables";
 
-export const StyledContactFormWrapper = styled.div`
+const FLOW_IN = keyframes`
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+`
+
+export const StyledContactFormWrapper = styled.div.attrs<{
+    animate?: boolean
+}>(props =>({
+    animate: props?.animate
+}))`
     padding-inline: 192px;
     padding-block: 48px;
     width: 100%;
     box-sizing: border-box;
+    opacity: 0;
+
+    animation: ${({animate}) => animate ? css`${FLOW_IN} .5s ease-in .2s forwards` : 'none'};
 
     @media (max-width: 1150px) {
         padding-inline: 64px;
@@ -200,6 +219,7 @@ export const StyledSendButton = styled.button`
     outline: none;
 
     background-color: #556E9D;
+    backdrop-filter: blur(8px);
     border-radius: 16px;
     box-shadow:
         4px 4px 4px 0px #20294F40,
@@ -220,6 +240,6 @@ export const StyledSendButton = styled.button`
     transition: background-color .3s ease;
 
     &:hover {
-        background-color: #0649CA;
+        background-color: #244988;
     }
 `

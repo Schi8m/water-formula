@@ -32,7 +32,7 @@ export const StyledAboutProductsCardContent = styled.div.attrs<{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 64px;
 
     & > div:first-child {
         animation: ${({startAnimation}) => startAnimation ? css`${SLIDE_IN_TOP} .5s ease-in-out forwards` : 'none'};
@@ -61,7 +61,7 @@ export const StyledAboutProductCard = styled.div`
     align-items: flex-start;
     gap: 20px;
     flex: 1;
-    max-width: 380px;
+    max-width: 400px;
     align-self: stretch;
     opacity: 0;
     box-shadow: 0px 8px 32px 0px #0000000D;

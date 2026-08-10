@@ -24,6 +24,18 @@ const SLIDE_IN_LEFT = keyframes`
    }
 `
 
+const SLIDE_IN_TOP = keyframes`
+    from {
+        transform: translateY(300px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+`
+
  export const StyledMainBannerWrapper = styled.div`
    display: flex;
    align-items: center;
@@ -48,9 +60,9 @@ const SLIDE_IN_LEFT = keyframes`
     padding-block: 75px;
     gap: 50px;
     justify-content: space-between;
-    opacity: 0;
+    /* opacity: 0; */
 
-    animation: ${SLIDE_IN_RIGHT} .5s ease-in-out forwards;
+    /* animation: ${SLIDE_IN_TOP} .5s ease-in-out forwards; */
  `
 
  export const StyledMainBannerTitle = styled.h1`
@@ -101,7 +113,7 @@ const SLIDE_IN_LEFT = keyframes`
       background-color: ${COLORS.MAIN.PRIMARY};
 
       &:hover {
-         background-color: #0649CA;
+         background-color: #244988;
       }
     }
 
@@ -111,7 +123,7 @@ const SLIDE_IN_LEFT = keyframes`
          4px 4px 4px 0px #E8E0E00D inset;
       background-color: ${COLORS.SECONDARY.PRIMARY};
       &:hover {
-         background-color: #0649CA;
+         background-color: #244988;
       }
     }
 
@@ -169,6 +181,7 @@ const SLIDE_IN_LEFT = keyframes`
 
       z-index: -1;
       background-image: url(/backdrop_banner.png);
+      background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
       opacity: 1;

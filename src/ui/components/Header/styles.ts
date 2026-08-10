@@ -1,16 +1,29 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { COLORS, SIZES } from "../../variables";
 
 
 export const SyledHeaderWrapper = styled.div`
-    background-color: ${COLORS.MAIN.BG};
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
+    box-sizing: border-box;
+    background-color: ${COLORS.MAIN.BG};
+    border-bottom: 1px solid ${COLORS.MAIN.BORDER};
+    position: fixed;
+    top: 0;
+    z-index: 10;
+`
+
+export const StyledHeaderContentWrapper = styled.div`
+    padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
+    max-width: 1460px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 80px;
     gap: ${SIZES.INDENTS.EXTRA_LARGE}px;
-    border-bottom: 1px solid ${COLORS.MAIN.BORDER};
     width: 100vw;
     box-sizing: border-box;
 
@@ -36,6 +49,7 @@ export const StyledHeaderContent = styled.nav`
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+
 
     @media (max-width: 860px) {
         display: none;
