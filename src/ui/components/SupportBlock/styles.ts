@@ -53,6 +53,42 @@ export const StyledSupportInfoBlock = styled.div.attrs<{
     transition: all .5s ease;
 `
 
+export const StyledMobileImgWrapper = styled.div`
+    display: none;
+    position: relative;
+    width: 100%;
+    & > img {
+        max-width: 100%;
+        object-position: center;
+        object-fit: contain;
+    }
+    &::before {
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top: -100px;
+        left: -100px;
+        right: -100px;
+        bottom: -100px;
+
+        z-index: -1;
+        background-image: url(/backdrop_card.png);
+        background-position: center;
+        background-size: contain;
+        opacity: 1;
+        transition: opacity .3s ease;
+        background-repeat: no-repeat;
+    }
+    &:hover {
+        &::before {
+            opacity: .5;
+        }
+    }
+    @media(max-width:876px) {
+        display: block;
+    }
+`
+
 export const StyledSupportImgBlock = styled.div.attrs<{
     animate?: boolean;
 }>(props => ({
@@ -194,6 +230,10 @@ export const StyledSupportCard = styled.div`
 
     &:hover {
         background-color: #6B8AC666;
+    }
+
+    @media (max-width: 876px) {
+        padding-block: 27px;
     }
 `
 

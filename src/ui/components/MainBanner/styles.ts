@@ -2,17 +2,6 @@ import styled, { keyframes } from "styled-components";
 import { COLORS, ROUNDS, SIZES } from "../../variables";
 import '@fontsource/akt';
 
-const SLIDE_IN_RIGHT = keyframes`
-   from {
-      transform: translateX(-50%);
-      opacity: 0;
-   }
-   to {
-      transform: translateX(0);
-      opacity: 1;
-   }
-`
-
 const SLIDE_IN_LEFT = keyframes`
    from {
       transform: translateX(50%);
@@ -24,19 +13,7 @@ const SLIDE_IN_LEFT = keyframes`
    }
 `
 
-const SLIDE_IN_TOP = keyframes`
-    from {
-        transform: translateY(300px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-`
-
- export const StyledMainBannerWrapper = styled.div`
+export const StyledMainBannerWrapper = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
@@ -45,10 +22,11 @@ const SLIDE_IN_TOP = keyframes`
    background-color: transparent;
    gap: 26px;
    box-sizing: border-box;
-   margin-top: 45px;
+   margin-top: 40px;
 
    @media (max-width: 860px) {
       flex-direction: column;
+      margin-top: 26px;
    }
  `
 
@@ -60,9 +38,12 @@ const SLIDE_IN_TOP = keyframes`
     padding-block: 75px;
     gap: 50px;
     justify-content: space-between;
-    /* opacity: 0; */
 
-    /* animation: ${SLIDE_IN_TOP} .5s ease-in-out forwards; */
+   @media(max-width: 876px) {
+      padding-block: 40px;
+      gap: 16px;
+   }
+
  `
 
  export const StyledMainBannerTitle = styled.h1`
@@ -164,13 +145,10 @@ const SLIDE_IN_TOP = keyframes`
 
  export const StyledMainBannerRightBlock = styled.div`
     flex: 1;
-
     opacity: 0;
     animation: ${SLIDE_IN_LEFT} .5s ease-in-out forwards;
-    /* background: radial-gradient(50% 50% at 50% 50%, rgba(200, 212, 236, 0.5) 0%, rgba(0,0,0,0) 100%); */
-    /* backdrop-filter: blur(1000px); */
- 
-    &::before {
+
+   &::before {
       pointer-events: none;
       content: '';
       position: absolute;
@@ -192,15 +170,52 @@ const SLIDE_IN_TOP = keyframes`
          opacity: .5;
       }
    }
-    & > img {
-        object-position: center;
-        object-fit: cover;
-        max-width: 100%;
-    }
-
-   @media (max-width: 860px) {
-    & > img {
-      width: 250px;
+   & > img {
+      object-position: center;
+      object-fit: cover;
+      max-width: 100%;
    }
+
+   @media (max-width: 876px) {
+      display: none;
+   }
+ `
+
+ export const StyledMobileImage = styled.div`
+   display: none;
+   flex: 1;
+   opacity: 0;
+   animation: ${SLIDE_IN_LEFT} .5s ease-in-out forwards;
+
+   &::before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      right: -80px;
+      bottom: -80px;
+
+      z-index: -1;
+      background-image: url(/backdrop_banner.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 1;
+      transition: opacity .3s ease;
+   }
+   &:hover {
+      &::before {
+         opacity: .5;
+      }
+   }
+   & > img {
+      object-position: center;
+      object-fit: cover;
+      max-width: 100%;
+   }
+
+   @media (max-width: 876px) {
+      display: flex;
    }
  `

@@ -216,6 +216,7 @@ export const StyledProductCardTitle = styled.h2`
 
    @media (max-width: 860px) {
     font-size: 20px;
+    margin-bottom: 0px;
    }
 `
 
@@ -227,6 +228,11 @@ export const StyledProductCardCost = styled.div`
     color: ${COLORS.MAIN.TEXT_LIGHT};
     margin-bottom: 56px;
     gap: 10px;
+
+    @media (max-width: 8786px) {
+        align-items: baseline;
+        margin-bottom: 24px;
+    }
 `
 
 export const StyledProductCardCostTitle = styled.h3`
@@ -240,6 +246,10 @@ export const StyledProductCardCostTitle = styled.h3`
     letter-spacing: -4px;
     vertical-align: middle;
     white-space: nowrap;
+
+    @media (max-width: 876px) {
+        font-size: 32px;
+    }
 `
 
 export const StyledProductCardCostDescription = styled.span`
@@ -252,6 +262,11 @@ export const StyledFunctionsList = styled.div`
     flex-direction: column;
     gap: 20px;
     margin-bottom: 70px;
+
+    @media (max-width: 876px) {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
 `
 
 export const StyledProductFunction = styled.div`
@@ -275,6 +290,11 @@ export const StyledProductFunction = styled.div`
         max-width: 17px;
         min-height: 17px;
         max-height: 17px;
+    }
+
+    @media (max-width: 876px) {
+        gap: 8px;
+        padding-block: 0px;
     }
 `
 

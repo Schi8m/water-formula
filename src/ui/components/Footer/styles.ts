@@ -13,6 +13,19 @@ export const StyledFooterWrapper = styled.div`
     justify-content: space-between;
     background-color: #080E26;
     border-top: 1px solid #C4C6CF4D;
+
+    @media(max-width: 876px) {
+        flex-direction: column;
+    }
+`
+
+export const StyledNavsRow = styled.div`
+    display: flex;
+    box-sizing: border-box;
+    gap: 64px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex: 1;
 `
 
 export const StyledLogosBlock = styled.div`
@@ -20,6 +33,7 @@ export const StyledLogosBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 55px;
+    max-width: fit-content;
 `
 
 export const StyledCopiight = styled.pre`

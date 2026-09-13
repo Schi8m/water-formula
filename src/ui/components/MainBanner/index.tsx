@@ -1,4 +1,4 @@
-import { StyledMainBannerButton, StyledMainBannerButtonsBlock, StyledMainBannerLeftBlock, StyledMainBannerRightBlock, StyledMainBannerSubtitle, StyledMainBannerTitle, StyledMainBannerWrapper } from "./styles";
+import { StyledMainBannerButton, StyledMainBannerButtonsBlock, StyledMainBannerLeftBlock, StyledMainBannerRightBlock, StyledMainBannerSubtitle, StyledMainBannerTitle, StyledMainBannerWrapper, StyledMobileImage } from "./styles";
 import mainBanner from '../../../../public/main_banner.png'
 
 export interface IMainBannerProps {
@@ -19,6 +19,9 @@ export const MainBanner: React.FC<IMainBannerProps> = ({
             <StyledMainBannerLeftBlock>
                 <StyledMainBannerTitle>{title}</StyledMainBannerTitle>
                 <StyledMainBannerSubtitle>{subtitle}</StyledMainBannerSubtitle>
+                <StyledMobileImage>
+                    <img src={image}/>
+                </StyledMobileImage>
                 <StyledMainBannerButtonsBlock>
                     {
                         buttons.map((b,index) =>

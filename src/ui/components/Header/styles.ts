@@ -14,6 +14,10 @@ export const SyledHeaderWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 10;
+
+    @media(max-width: 876px) {
+        padding-inline: 16px;
+    }
 `
 
 export const StyledHeaderContentWrapper = styled.div`
@@ -41,6 +45,11 @@ export const StyledHeaderContentWrapper = styled.div`
         }
 
     }
+
+    @media (max-width: 860px) {
+        padding-inline: 48px;
+    }
+    
 `
 
 export const StyledHeaderContent = styled.nav`

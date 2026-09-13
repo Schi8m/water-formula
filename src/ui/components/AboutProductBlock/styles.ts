@@ -101,6 +101,8 @@ export const StyledAboutProductCard = styled.div`
    @media (max-width: 860px) {
     width: 100%;
     max-width: none;
+    grid-template-rows: 28px 22px 36px 22px;
+
    }
 `
 export const StyledProgress = styled.div.attrs<{
@@ -129,6 +131,11 @@ export const StyledProductIcon = styled.div`
     & > svg {
         min-width: 32px;
         max-width: 32px;
+
+        @media (max-width: 876px) {
+            min-width: 22px;
+            max-width: 22px;
+        }
     }
 `
 
@@ -148,6 +155,7 @@ export const StyledAboutProductCardTitle = styled.h2`
 
    @media (max-width: 860px) {
     font-size: 20px;
+    margin-top: 0px;
    }
 `
 

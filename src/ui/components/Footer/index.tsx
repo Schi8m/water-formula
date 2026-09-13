@@ -1,5 +1,5 @@
 import type React from "react";
-import { StyledContacts, StyledCopiight, StyledFooterWrapper, StyledLogosBlock, StyledMainNav, StyledNavBlock, StyledPhone, StyledSecondaryNav } from "./styles";
+import { StyledContacts, StyledCopiight, StyledFooterWrapper, StyledLogosBlock, StyledMainNav, StyledNavBlock, StyledNavsRow, StyledPhone, StyledSecondaryNav } from "./styles";
 
 export interface IFooterProps {
     copyright: string;
@@ -35,25 +35,27 @@ export const Footer:React.FC<IFooterProps> = ({
                 <StyledCopiight>{copyright}</StyledCopiight>
             </StyledLogosBlock>
 
-            <StyledNavBlock>
-                <StyledMainNav>ПРОДУКТ</StyledMainNav>
-                <StyledSecondaryNav>ВОЗМОЖНОСТИ</StyledSecondaryNav>
-                <StyledSecondaryNav>РЕЕСТР по</StyledSecondaryNav>
-                <StyledSecondaryNav>ВЕРСИИ И ЦЕНЫ</StyledSecondaryNav>
-            </StyledNavBlock>
+            <StyledNavsRow>
+                <StyledNavBlock>
+                    <StyledMainNav>ПРОДУКТ</StyledMainNav>
+                    <StyledSecondaryNav>ВОЗМОЖНОСТИ</StyledSecondaryNav>
+                    <StyledSecondaryNav>РЕЕСТР по</StyledSecondaryNav>
+                    <StyledSecondaryNav>ВЕРСИИ И ЦЕНЫ</StyledSecondaryNav>
+                </StyledNavBlock>
 
-            <StyledNavBlock>
-                <StyledMainNav>КОМПАНИЯ</StyledMainNav>
-                <StyledSecondaryNav>ИСТОРИЯ</StyledSecondaryNav>
-                <StyledSecondaryNav>КОНТАКТЫ</StyledSecondaryNav>
-            </StyledNavBlock>
+                <StyledNavBlock>
+                    <StyledMainNav>КОМПАНИЯ</StyledMainNav>
+                    <StyledSecondaryNav>ИСТОРИЯ</StyledSecondaryNav>
+                    <StyledSecondaryNav>КОНТАКТЫ</StyledSecondaryNav>
+                </StyledNavBlock>
 
-            <StyledNavBlock>
-                <StyledMainNav>КОНТАКТЫ</StyledMainNav>
-                <StyledContacts>107045, город Москва, Последний пер., д.7</StyledContacts>
-                <StyledContacts>contact@formwater.ru</StyledContacts>
-                <StyledPhone>+7 (800) 700 - 53 - 57</StyledPhone>
-            </StyledNavBlock>
+                <StyledNavBlock>
+                    <StyledMainNav>КОНТАКТЫ</StyledMainNav>
+                    <StyledContacts>107045, город Москва, Последний пер., д.7</StyledContacts>
+                    <StyledContacts>contact@formwater.ru</StyledContacts>
+                    <StyledPhone>+7 (800) 700 - 53 - 57</StyledPhone>
+                </StyledNavBlock>
+            </StyledNavsRow>
         </StyledFooterWrapper>
     )
 }

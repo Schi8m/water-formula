@@ -1,5 +1,5 @@
 import type { JSX } from "react/jsx-runtime";
-import { StyledSupportBlockWrapper, StyledSupportCard, StyledSupportCards, StyledSupportCardSubtitle, StyledSupportCardText, StyledSupportCardTitle, StyledSupportImgBlock, StyledSupportInfoBlock, StyledSupportSubtitle, StyledSupportTitle } from "./styles";
+import { StyledMobileImgWrapper, StyledSupportBlockWrapper, StyledSupportCard, StyledSupportCards, StyledSupportCardSubtitle, StyledSupportCardText, StyledSupportCardTitle, StyledSupportImgBlock, StyledSupportInfoBlock, StyledSupportSubtitle, StyledSupportTitle } from "./styles";
 
 export interface ISupportCard {
     icon: JSX.Element;
@@ -27,6 +27,9 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
             <StyledSupportInfoBlock animate={animate}>
                 <StyledSupportTitle>{title}</StyledSupportTitle>
                 <StyledSupportSubtitle>{subtitle}</StyledSupportSubtitle>
+                <StyledMobileImgWrapper>
+                    <img src={image}/>
+                </StyledMobileImgWrapper>
                 <StyledSupportCards animate={animate}>
                     {cards.map(c => <StyledSupportCard>
                         {c?.icon}

@@ -34,4 +34,11 @@ body {
     flex-direction: column;
     gap: 80px;
     padding-bottom: 200px;
+    overflow-x: hidden;
+}
+
+@media (max-width: 876px) {
+    .main-page {
+        gap: 26px;
+    }
 }
