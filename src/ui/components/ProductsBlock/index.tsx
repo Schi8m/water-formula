@@ -12,6 +12,7 @@ export interface IProductBlockProps {
     products: IProduct[];
     linkBtnTitle: string;
     animate?: boolean;
+    onLinkBtnClick?: () => void;
 }
 
 export const ProductBlock: React.FC<IProductBlockProps> = ({
@@ -19,7 +20,8 @@ export const ProductBlock: React.FC<IProductBlockProps> = ({
     subtitle = '',
     products = [],
     linkBtnTitle = '',
-    animate = false
+    animate = false,
+    onLinkBtnClick = () => {}
 }) => {
     function formatNumberWithSpaces(num: number): string {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -51,7 +53,7 @@ export const ProductBlock: React.FC<IProductBlockProps> = ({
                             {f}
                         </StyledProductFunction>)}
                     </StyledFunctionsList>
-                    <StyledProductCardLinkBtn>{linkBtnTitle}</StyledProductCardLinkBtn>
+                    <StyledProductCardLinkBtn onClick={onLinkBtnClick}>{linkBtnTitle}</StyledProductCardLinkBtn>
                 </StyledProductCard>)}
             </StyledProductsCardContent>
         </StyledProductsBlockWrapper>

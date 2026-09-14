@@ -47,7 +47,7 @@ export const StyledHeaderContentWrapper = styled.div`
     }
 
     @media (max-width: 860px) {
-        padding-inline: 48px;
+        padding-inline: 0;
     }
     
 `
@@ -99,7 +99,8 @@ export const StyledMobileNavIcon = styled.div`
     }
 `
 
-export const StyledPhoneSvg = styled.div`
+export const StyledPhoneSvg = styled.a`
+    cursor: pointer;
     @media (max-width: 860px) {
         display: none;
     }

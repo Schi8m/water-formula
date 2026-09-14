@@ -30,6 +30,10 @@ export const StyledContactFormWrapper = styled.div.attrs<{
     @media (max-width: 1150px) {
         padding-inline: 64px;
     }
+
+    @media (max-width: 876px) {
+        padding-inline: 16px;
+    }
 `
 
 export const StyledContactFormContent = styled.div`

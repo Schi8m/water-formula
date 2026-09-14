@@ -16,6 +16,7 @@ export const StyledFooterWrapper = styled.div`
 
     @media(max-width: 876px) {
         flex-direction: column;
+        padding-inline: 16px;
     }
 `
 
@@ -26,6 +27,10 @@ export const StyledNavsRow = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     flex: 1;
+
+    @media(max-width: 876px) {
+        gap: 20px;
+    }
 `
 
 export const StyledLogosBlock = styled.div`

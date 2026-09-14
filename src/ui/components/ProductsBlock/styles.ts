@@ -23,6 +23,10 @@ export const StyledProductsBlockWrapper = styled.div`
     box-sizing: border-box;
     gap: 60px;
     margin-bottom: 48px;
+
+    @media(max-width: 876px) {
+        padding-inline: 16px;
+    }
 `
 
 export const StyledProductsBlockHeader = styled.div`

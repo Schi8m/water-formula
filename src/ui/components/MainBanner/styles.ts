@@ -27,6 +27,7 @@ export const StyledMainBannerWrapper = styled.div`
    @media (max-width: 860px) {
       flex-direction: column;
       margin-top: 26px;
+      padding-inline: 16px;
    }
  `
 

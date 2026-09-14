@@ -9,7 +9,7 @@ import { SupportBlock } from '../ui/components/SupportBlock';
 import { DownloadBlock } from '../ui/components/DownloadBlock';
 import { ContactForm } from '../ui/components/ContactForm';
 import { useInView } from 'react-intersection-observer';
-import { Loader } from '../ui/components/Loader';
+import { useRouter } from 'next/navigation';
 
 
 const MAIN_BANNER_DATA = {
@@ -108,9 +108,9 @@ const SUPPORT_BLOCK_DATA = {
 
 const DOWNLOAD_BLOCK_DATA = {
     title: 'ЗАГРУЗКА ПРОДУКТА',
-    subtitle: 'Версия 2.4.0',
+    subtitle: 'Версия 1.1.0',
     description: 'Актуальная стабильная версия для Windows 10/11.',
-    btnTitle: 'СКАЧАТЬ ХХХ'
+    btnTitle: 'СКАЧАТЬ 1.1.0'
 }
 
 const CONTACT_FORM_DATA = {
@@ -128,6 +128,8 @@ export function ClientPage() {
   const [animateSuppoprtBlock, setAnimateSupportBlock] = useState(false);
   const [animateContacts, setAnimateContacts] = useState(false);
   const [animateDownloads, setAnimateDownloads] = useState(false);
+
+  const router = useRouter();
 
   const { ref: productTriggerRef } = useInView({
     rootMargin: '0px 0px -300px 0px',
@@ -204,12 +206,21 @@ export function ClientPage() {
     );
   }
 
+  const scrollById = (id: string) => {
+    router.push(`/#${id}`)
+
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+  }
+
+
 
   return (
     <div className='main-page'>
-      <MainBanner {...MAIN_BANNER_DATA} image='/main_banner.png'/>
-      <div ref={productTriggerRef} style={{ height: '1px' }} />
-      <ProductBlock {...PRODUCTS_BLOCK_DATA} animate={animateProductBlock} />
+      <MainBanner {...MAIN_BANNER_DATA} image='/main_banner.png' onLeftBtnClick={() => scrollById('products-block')} onRightBtnClick={() => scrollById('download')}/>
+      <div id='products-block' ref={productTriggerRef} style={{ height: '1px' }} />
+      <ProductBlock {...PRODUCTS_BLOCK_DATA} animate={animateProductBlock} onLinkBtnClick={() => scrollById('contacts')}/>
       <div id='about-product' ref={aboutProductTriggerRef} style={{ height: '1px' }}/>
       <AboutProductBlock {...ABOUT_PRODUCTS_BLOCK} animate={animateAboutProductBlock}/>
       <div id='about-developer' ref={aboutDeveloperTriggerRef} style={{ height: '1px' }}/>

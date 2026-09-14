@@ -21,6 +21,10 @@ export const StyledAboutDeveloperWrapper = styled.div`
     align-items: center;
     justify-content: center;
     padding-block: 48px;
+
+    @media(max-width: 876px) {
+        padding-inline: 16px;
+    }
 `
 
 export const StyledAboutDeveloperContent = styled.div.attrs<{

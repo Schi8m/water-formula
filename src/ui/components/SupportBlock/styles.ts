@@ -36,6 +36,7 @@ export const StyledSupportBlockWrapper = styled.div`
 
    @media (max-width: 860px) {
     flex-direction: column;
+    padding-inline: 16px;
    }
 `
 

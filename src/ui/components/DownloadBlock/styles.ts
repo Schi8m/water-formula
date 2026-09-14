@@ -22,6 +22,10 @@ export const StyledDownloadBlockWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 64px;
+
+    @media(max-width:876px) {
+        padding-inline: 16px;
+    }
 `
 
 export const StyledDownloadBlockContent = styled.div.attrs<{

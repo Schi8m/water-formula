@@ -33,7 +33,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <Header routes={navs}/>
         {children}
-        <Footer copyright={"© 2026 формула воды\n[ ВСЕ ПРАВА ЗАЩИЩЕНЫ ]\nENGINEERING SOFTWARE CORE V4.2"} />
+        <Footer copyright={"© 2026 формула воды\n[ ВСЕ ПРАВА ЗАЩИЩЕНЫ ]\nENGINEERING SOFTWARE CORE"} />
       </body>
     </html>
   );
