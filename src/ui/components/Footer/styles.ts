@@ -60,6 +60,7 @@ export const StyledNavBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 30%;
 `
 
 export const StyledMainNav = styled.a`
@@ -96,6 +97,8 @@ export const StyledContacts = styled.a`
     letter-spacing: 0px;
     vertical-align: middle;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+    max-width: 100%;
+    word-break: break-all;
 `
 
 export const StyledPhone = styled.a`
