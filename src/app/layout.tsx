@@ -5,11 +5,11 @@ import { Header } from '../ui/components/Header';
 import { Footer } from '../ui/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Water Formula - Ваш гид по воде',
+  title: 'Формула воды',
   description: 'Персональный калькулятор потребления воды',
   keywords: 'вода, здоровье, калькулятор воды, гидратация',
   openGraph: {
-    title: 'Water Formula',
+    title: 'Формула воды',
     description: 'Рассчитайте свою норму потребления воды',
     type: 'website',
     locale: 'ru_RU',
