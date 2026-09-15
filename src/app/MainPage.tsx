@@ -205,7 +205,7 @@ export function ClientPage() {
   });
   
   useEffect(() => {
-    // Имитация загрузки клиентских данных
+    window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1);

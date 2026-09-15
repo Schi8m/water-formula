@@ -57,7 +57,7 @@ export const StyledOptionsList = styled.div`
     background-color: red;
     width: 100%;
     z-index: 5;
-    background-color: #6B8AC633;
+    background-color: #324269;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     backdrop-filter: blur(16px);    
