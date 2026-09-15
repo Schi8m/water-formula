@@ -109,6 +109,26 @@ export const FormRow = styled.div`
    }
 `
 
+export const StyledSelect = styled.select`
+    background-color: #6B8AC633;
+    border-radius: 16px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: ${COLORS.MAIN.TEXT_LIGHT};
+    box-sizing: border-box;
+   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+   & > option {
+    background-color: #6B8AC633;
+    color: white;
+    padding: 16px;
+   }
+`
+
 export const StyledInput = styled.input`
     background-color: #6B8AC633;
     border-radius: 16px;
@@ -245,5 +265,9 @@ export const StyledSendButton = styled.button`
 
     &:hover {
         background-color: #244988;
+    }
+
+    &:disabled {
+        opacity: .6;
     }
 `

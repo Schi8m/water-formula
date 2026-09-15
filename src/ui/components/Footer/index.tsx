@@ -38,15 +38,15 @@ export const Footer:React.FC<IFooterProps> = ({
             <StyledNavsRow>
                 <StyledNavBlock>
                     <StyledMainNav>ПРОДУКТ</StyledMainNav>
-                    <StyledSecondaryNav>ВОЗМОЖНОСТИ</StyledSecondaryNav>
-                    <StyledSecondaryNav>РЕЕСТР по</StyledSecondaryNav>
-                    <StyledSecondaryNav>ВЕРСИИ И ЦЕНЫ</StyledSecondaryNav>
+                    <StyledSecondaryNav href="/#about-product">О ПРОДУКТЕ</StyledSecondaryNav>
+                    <StyledSecondaryNav href="/#products-block">ВЕРСИИ И ЦЕНЫ</StyledSecondaryNav>
+                    <StyledSecondaryNav href="/#support">ПОДДЕРЖКА</StyledSecondaryNav>
                 </StyledNavBlock>
 
                 <StyledNavBlock>
                     <StyledMainNav>КОМПАНИЯ</StyledMainNav>
-                    <StyledSecondaryNav>ИСТОРИЯ</StyledSecondaryNav>
-                    <StyledSecondaryNav>КОНТАКТЫ</StyledSecondaryNav>
+                    <StyledSecondaryNav href='/#about-developer'>О НАС</StyledSecondaryNav>
+                    <StyledSecondaryNav href='/#contacts'>СВЯЗАТЬСЯ С НАМИ</StyledSecondaryNav>
                 </StyledNavBlock>
 
                 <StyledNavBlock>

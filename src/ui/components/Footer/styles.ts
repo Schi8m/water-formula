@@ -91,6 +91,7 @@ export const StyledSecondaryNav = styled.a`
     vertical-align: middle;
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+    text-decoration: none;
 `
 
 export const StyledContacts = styled.div`

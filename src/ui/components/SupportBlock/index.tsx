@@ -5,6 +5,8 @@ export interface ISupportCard {
     icon: JSX.Element;
     title: string;
     subtitle: string;
+    downloadLink?: string;
+    downloadName?: string;
 }
 
 export interface ISupportBlockProps {
@@ -22,6 +24,19 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
     image,
     animate = false
 }) => {
+
+    const handleDownload = (url?: string, filename?: string) => {
+        if (!url || ! filename) return;
+        const link = document.createElement('a');
+        link.href = url;
+        if (filename) {
+            link.download = filename;
+        }
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <StyledSupportBlockWrapper>
             <StyledSupportInfoBlock animate={animate}>
@@ -31,7 +46,7 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
                     <img src={image}/>
                 </StyledMobileImgWrapper>
                 <StyledSupportCards animate={animate}>
-                    {cards.map(c => <StyledSupportCard>
+                    {cards.map(c => <StyledSupportCard onClick={()=>handleDownload(c?.downloadLink, c?.downloadName)}>
                         {c?.icon}
                         <StyledSupportCardText>
                             <StyledSupportCardTitle>{c?.title}</StyledSupportCardTitle>
