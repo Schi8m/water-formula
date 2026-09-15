@@ -139,6 +139,10 @@ export const StyledInput = styled.input`
     color: ${COLORS.MAIN.TEXT_LIGHT};
     box-sizing: border-box;
 
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    
     &::placeholder {
         font-family: 'Roboto Condensed', sans-serif;
         font-weight: 500;

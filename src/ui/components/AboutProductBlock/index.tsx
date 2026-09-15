@@ -43,7 +43,7 @@ export const AboutProductBlock: React.FC<IAboutProductProps> = ({
                         {c?.linkTitle ?
                             <StyledAboutProductCardLink
                                 onClick={i === 0 ? onOpenModal : () => {}}
-                                href={i === 1 ? downLoadPresentationLink : ''}
+                                href={i === 1 ? downLoadPresentationLink : undefined}
                                 download={i === 1 ? 'Presentation.pdf' : false}
                             >{c?.linkTitle}{c?.linkIcon}</StyledAboutProductCardLink> 
                         : <StyledProgress animate={animate}/>}

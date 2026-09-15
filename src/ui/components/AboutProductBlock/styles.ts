@@ -61,7 +61,7 @@ export const StyledAboutProductCard = styled.div`
     align-items: flex-start;
     gap: 20px;
     flex: 1;
-    max-width: 400px;
+    width: 100%;
     align-self: stretch;
     opacity: 0;
     box-shadow: 0px 8px 32px 0px #0000000D;

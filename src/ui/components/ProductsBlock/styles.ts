@@ -113,7 +113,7 @@ export const StyledProductCard = styled.div`
     box-shadow: 0px 8px 32px 0px #0000000D;
     backdrop-filter: blur(8px);
     opacity: 0;
-
+    flex: 1;
     align-self: stretch;
     &:hover {
         background-color: #6B8AC640;
@@ -279,7 +279,6 @@ export const StyledProductFunction = styled.div`
     flex-direction: row;
     align-items: flex-start;
     gap: 24px;
-
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 500;
     font-style: Medium;
@@ -295,6 +294,12 @@ export const StyledProductFunction = styled.div`
         max-width: 17px;
         min-height: 17px;
         max-height: 17px;
+    }
+    
+    & > a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
     }
 
     @media (max-width: 876px) {
