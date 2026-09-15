@@ -7,7 +7,6 @@ import Select from "../Select";
 export interface IContactFormProps {
     title: string;
     subtitle: string;
-    checkboxDescr: string;
     sendBtnTitle: string;
     animate?: boolean;
     onSubmit?: (name?: string, email?: string, version?: string, count?: number, addInfo?: string) => void
@@ -16,7 +15,6 @@ export interface IContactFormProps {
 export const ContactForm: React.FC<IContactFormProps> = ({
     title = '',
     subtitle = '',
-    checkboxDescr = '',
     sendBtnTitle = '',
     animate = false,
     onSubmit
@@ -54,7 +52,10 @@ export const ContactForm: React.FC<IContactFormProps> = ({
                         <StyledCheckBoxWrapper>
                             <HiddenCheckbox />
                             <StyledCheckbox checked={policyChecked} onClick={() => setPolicyChecked(!policyChecked)}/>
-                            <StyledCheckBoxDescription>{checkboxDescr}</StyledCheckBoxDescription>
+                            <StyledCheckBoxDescription>Я СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ В СООТВЕТСТВИИ С <a
+                                href='/files/Политика обработки ПД_ИдеяСофт.pdf'
+                                download='Политика обработки ПД_ИдеяСофт.pdf'
+                            >ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ</a>.</StyledCheckBoxDescription>
                         </StyledCheckBoxWrapper>
                     </StyledCheckBoxRow>
                     <StyledSendButton

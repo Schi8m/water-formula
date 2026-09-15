@@ -240,6 +240,11 @@ export const StyledCheckBoxDescription = styled.label`
     vertical-align: middle;
     text-transform: uppercase;
     color: ${COLORS.SECONDARY.TEXT_DARK};
+
+    & > a {
+        text-decoration: none;
+        color: #244988;
+    }
 `
 
 export const StyledSendButton = styled.button`
