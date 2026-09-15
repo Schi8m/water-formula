@@ -60,7 +60,12 @@ export const StyledNavBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 33%;
+
+    @media (max-width: 876px) {
+        &:last-child {
+            flex: 3;
+        }
+    }
 `
 
 export const StyledMainNav = styled.a`

@@ -1,4 +1,6 @@
-import { StyledHeaderContent, StyledHeaderContentWrapper, StyledMobileNavIcon, StyledPhoneSvg, StyledRoute, SyledHeaderWrapper } from "./styles"
+'use client'
+import { useState } from "react";
+import { StyledHeaderContent, StyledHeaderContentWrapper, StyledMobileNav, StyledMobileNavIcon, StyledPhoneSvg, StyledRoute, SyledHeaderWrapper } from "./styles"
 
 // Интерфейс рутов для навигации
 export interface INavigationItem {
@@ -16,8 +18,11 @@ export interface IHeaderProps {
 
 // Компонент хэдера сайта
 export const Header: React.FC<IHeaderProps> = ({
-    routes = []
+    routes = [],
+    toggleMobileNavOpened,
+    showMobileNavPanel
 }) => {
+    const [showMobileNav, setShowMobileNav] = useState(false)
     return (
         <SyledHeaderWrapper>
             <StyledHeaderContentWrapper>
@@ -42,13 +47,19 @@ export const Header: React.FC<IHeaderProps> = ({
                     </svg>
                 </StyledPhoneSvg>
 
-                <StyledMobileNavIcon>
+                <StyledMobileNavIcon onClick={() => setShowMobileNav(!showMobileNav)}>
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0L22 5.7738e-07L22 2.86957L-7.53104e-08 2.86957L0 0ZM-2.51035e-07 9.56522L22 9.56522L22 12.4348L-3.26345e-07 12.4348L-2.51035e-07 9.56522ZM-5.02069e-07 19.1304L22 19.1304L22 22L-5.7738e-07 22L-5.02069e-07 19.1304Z" fill="#D4D2D2"/>
                     </svg>
                 </StyledMobileNavIcon>
 
 
+                {showMobileNav ? <StyledMobileNav>
+                        {routes.map(r => <StyledRoute
+                            href={r?.link}
+                            onClick={() => setShowMobileNav(false)}
+                        >{r?.title}</StyledRoute>)}
+                </StyledMobileNav> : <></>}
             </StyledHeaderContentWrapper>
         </SyledHeaderWrapper>
     )

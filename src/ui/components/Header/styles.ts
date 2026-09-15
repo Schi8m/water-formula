@@ -59,6 +59,21 @@ export const StyledHeaderContent = styled.nav`
     }
 `
 
+export const StyledMobileNav = styled.div`
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 81px;
+    right: 0%;
+
+    background-color: #080E26;
+    padding-inline: 32px;
+    
+    @media (min-width: 876px) {
+        display: none;
+    }
+`
+
 export const StyledRoute = styled.a`
     border: none;
     outline: none;

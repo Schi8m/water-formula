@@ -101,8 +101,7 @@ export const StyledAboutProductCard = styled.div`
    @media (max-width: 860px) {
     width: 100%;
     max-width: none;
-    grid-template-rows: 28px 22px 36px 22px;
-
+    grid-template-rows: 28px 22px 100px 22px;
    }
 `
 export const StyledProgress = styled.div.attrs<{
