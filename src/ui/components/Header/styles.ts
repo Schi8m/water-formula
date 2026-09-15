@@ -21,7 +21,6 @@ export const SyledHeaderWrapper = styled.div`
 `
 
 export const StyledHeaderContentWrapper = styled.div`
-    padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
     max-width: 1460px;
     display: flex;
     align-items: center;
@@ -45,11 +44,6 @@ export const StyledHeaderContentWrapper = styled.div`
         }
 
     }
-
-    @media (max-width: 860px) {
-        padding-inline: 0;
-    }
-    
 `
 
 export const StyledHeaderContent = styled.nav`

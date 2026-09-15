@@ -8,6 +8,7 @@ export interface IDownloadBlockProps {
     description: string;
     btnTitle: string;
     animate?: boolean;
+    downloadLink?: string;
 }
 
 export const DownloadBlock: React.FC<IDownloadBlockProps> = ({
@@ -15,7 +16,8 @@ export const DownloadBlock: React.FC<IDownloadBlockProps> = ({
     subtitle = '',
     description = '',
     btnTitle = '',
-    animate = false
+    animate = false,
+    downloadLink
 }) => {
     return (
         <StyledDownloadBlockWrapper>
@@ -26,7 +28,7 @@ export const DownloadBlock: React.FC<IDownloadBlockProps> = ({
                 </svg>
                 <StyledDownloadBlockSubtitle>{subtitle}</StyledDownloadBlockSubtitle>
                 <StyledDownlaodBlockDescription>{description}</StyledDownlaodBlockDescription>
-                <StyledDownloadBlockButton>{btnTitle}</StyledDownloadBlockButton>
+                <StyledDownloadBlockButton href={downloadLink} download='FormWater_Setup_1.1.0.exe'>{btnTitle}</StyledDownloadBlockButton>
             </StyledDownloadBlockContent>
         </StyledDownloadBlockWrapper>
     )

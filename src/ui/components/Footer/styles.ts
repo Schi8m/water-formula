@@ -6,7 +6,7 @@ export const StyledFooterWrapper = styled.div`
     flex-direction: row;
     box-sizing: border-box;
     width: 100%;
-    padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
+    padding-inline: max(${SIZES.INDENTS.DESKTOP_PADDINGS}px, calc((100vw - 1460px) / 2));
     padding-block: 48px;
     gap: 64px;
     align-items: flex-start;
@@ -60,7 +60,7 @@ export const StyledNavBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 30%;
+    max-width: 33%;
 `
 
 export const StyledMainNav = styled.a`
@@ -88,7 +88,7 @@ export const StyledSecondaryNav = styled.a`
     color: ${COLORS.MAIN.TEXT_LIGHT};
 `
 
-export const StyledContacts = styled.a`
+export const StyledContacts = styled.div`
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 500;
     font-style: Medium;
@@ -98,7 +98,16 @@ export const StyledContacts = styled.a`
     vertical-align: middle;
     color: ${COLORS.MAIN.TEXT_LIGHT};
     max-width: 100%;
-    word-break: break-all;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    & > a {
+        text-decoration: none;
+        cursor: pointer;
+        color: #244988;
+        font-size: 16px;
+    }
 `
 
 export const StyledPhone = styled.a`

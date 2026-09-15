@@ -13,6 +13,7 @@ export interface IProductBlockProps {
     linkBtnTitle: string;
     animate?: boolean;
     onLinkBtnClick?: () => void;
+    downloadLink?: string;
 }
 
 export const ProductBlock: React.FC<IProductBlockProps> = ({

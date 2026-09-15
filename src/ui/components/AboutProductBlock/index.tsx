@@ -16,13 +16,17 @@ export interface IAboutProductProps {
     subtitle: string;
     cards: IAboutProductCard[]
     animate?: boolean;
+    onOpenModal?: () => void;
+    downLoadPresentationLink?: string;
 }
 
 export const AboutProductBlock: React.FC<IAboutProductProps> = ({
     title = '',
     subtitle = '',
     cards = [],
-    animate = false
+    animate = false,
+    onOpenModal = () => {},
+    downLoadPresentationLink
 }) => {
     return (
         <StyledProductsBlockWrapper>
@@ -32,11 +36,16 @@ export const AboutProductBlock: React.FC<IAboutProductProps> = ({
             </StyledProductsBlockHeader>
             <StyledAboutProductsCardContent startAnimation={animate}>
                 {
-                    cards.map(c => <StyledAboutProductCard>
+                    cards.map((c, i) => <StyledAboutProductCard>
                         <StyledProductIcon>{c?.icon ?? <></>}</StyledProductIcon>
                         <StyledAboutProductCardTitle>{c?.title}</StyledAboutProductCardTitle>
                         <StyledAboutProductCardSubtitle>{c?.subtitle}</StyledAboutProductCardSubtitle>
-                        {c?.linkTitle ? <StyledAboutProductCardLink>{c?.linkTitle}{c?.linkIcon}</StyledAboutProductCardLink> 
+                        {c?.linkTitle ?
+                            <StyledAboutProductCardLink
+                                onClick={i === 0 ? onOpenModal : () => {}}
+                                href={i === 1 ? downLoadPresentationLink : ''}
+                                download={i === 1 ? 'Presentation.pdf' : false}
+                            >{c?.linkTitle}{c?.linkIcon}</StyledAboutProductCardLink> 
                         : <StyledProgress animate={animate}/>}
                     </StyledAboutProductCard>)
                 }

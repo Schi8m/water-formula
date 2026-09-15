@@ -114,6 +114,7 @@ export const StyledProductCard = styled.div`
     backdrop-filter: blur(8px);
     opacity: 0;
 
+    align-self: stretch;
     &:hover {
         background-color: #6B8AC640;
     }
@@ -323,6 +324,7 @@ export const StyledProductCardLinkBtn = styled.button`
     color: #fff;
     border-radius: 12px;
     text-transform: uppercase;
+    margin-top: auto;
     cursor: pointer;
     transition: all .3s ease;
 

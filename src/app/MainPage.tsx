@@ -10,6 +10,8 @@ import { DownloadBlock } from '../ui/components/DownloadBlock';
 import { ContactForm } from '../ui/components/ContactForm';
 import { useInView } from 'react-intersection-observer';
 import { useRouter } from 'next/navigation';
+import { ModalWindow } from '../ui/components/ModalWindow';
+import { StyledFunctionsList, StyledProductFunction } from '../ui/components/ProductsBlock/styles';
 
 
 const MAIN_BANNER_DATA = {
@@ -25,9 +27,9 @@ const PRODUCTS_BLOCK_DATA = {
     title: 'ВЕРСИИ ПОСТАВКИ',
     subtitle: 'Лицензии предоставляются на годовой основе с полной техподдержкой.',
     products: [
-        {title: 'бАЗОВЫЙ', cost: 95690, functions: ['Одиночный гидравлический расчет', 'Экспорт в формате PDF', '1 лицензия']},
-        {title: 'СТАНДАРТ', cost: 112800, functions: ['Все функции БАЗОВОГО плана', 'Расширенные гидравлические библиотеки', 'Техподдержка 24/7', '5 лицензий пользователей']},
-        {title: 'ПРОФИ', cost: 124500, functions: ['Неограниченное количество сессий', 'Полная интеграция через API', 'Обучение персонала']}
+        {title: 'бАЗОВЫЙ', cost: 95690, functions: ['Управление проектами', 'Расчёт расхода воды ', 'Расчёт теплового потока для ГВС', 'Расчёт водного баланса', 'Библиотека норм водопотребления']},
+        {title: 'СТАНДАРТ', cost: 112800, functions: ['Управление проектами', 'Расчёт расхода воды', 'Расчёт теплового потока для ГВС', 'Расчёт водного баланса', 'Добавление и удаление типов объектов в библиотеке', 'Использование пользовательского шаблона']},
+        {title: 'ПРОФИ', cost: 124500, functions: ['Управление проектами', 'Расчёт расхода воды ', 'Расчёт теплового потока для ГВС', 'Расчёт водного баланса', 'Библиотека норм водопотребления', 'Добавление и удаление типов объектов в библиотеке', 'Конструктор отчёта', 'Использование пользовательского шаблона']}
     ],
     linkBtnTitle: 'оформить заказ'
 }
@@ -120,6 +122,14 @@ const CONTACT_FORM_DATA = {
     sendBtnTitle: 'отправить'
 }
 
+const MODAL_FUNCTIONS = [
+  'Дистрибутив “Формула воды”',
+  'Техническая документация',
+  'Протокол заседания экспертного совета',
+  'Сведения о записи в реестре российского ПО',
+  'Сведения о внесении “Формула воды” на сайте Минцифры'
+]
+
 export function ClientPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [animateProductBlock, setAnimateProductBlock] = useState(false);
@@ -128,6 +138,7 @@ export function ClientPage() {
   const [animateSuppoprtBlock, setAnimateSupportBlock] = useState(false);
   const [animateContacts, setAnimateContacts] = useState(false);
   const [animateDownloads, setAnimateDownloads] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const router = useRouter();
 
@@ -190,7 +201,7 @@ export function ClientPage() {
       }
     }
   });
-
+  
   useEffect(() => {
     // Имитация загрузки клиентских данных
     const timer = setTimeout(() => {
@@ -220,17 +231,33 @@ export function ClientPage() {
     <div className='main-page'>
       <MainBanner {...MAIN_BANNER_DATA} image='/main_banner.png' onLeftBtnClick={() => scrollById('products-block')} onRightBtnClick={() => scrollById('download')}/>
       <div id='products-block' ref={productTriggerRef} style={{ height: '1px' }} />
-      <ProductBlock {...PRODUCTS_BLOCK_DATA} animate={animateProductBlock} onLinkBtnClick={() => scrollById('contacts')}/>
+      <ProductBlock {...PRODUCTS_BLOCK_DATA} animate={animateProductBlock} onLinkBtnClick={() => scrollById('contacts')} downloadLink='/files/presentation.pdf'/>
       <div id='about-product' ref={aboutProductTriggerRef} style={{ height: '1px' }}/>
-      <AboutProductBlock {...ABOUT_PRODUCTS_BLOCK} animate={animateAboutProductBlock}/>
+      <AboutProductBlock
+        {...ABOUT_PRODUCTS_BLOCK}
+        animate={animateAboutProductBlock}
+        onOpenModal={() => setShowModal(true)}
+        downLoadPresentationLink = '/files/presentation.pdf'
+      />
       <div id='about-developer' ref={aboutDeveloperTriggerRef} style={{ height: '1px' }}/>
       <AboutDeveloperBlock {...ABOUT_DEVELOP_BLOCK} animate={animateAboutDeveloperBlock}/>
       <div id='support' ref={supportTriggerRef} style={{ height: '1px' }}/>
       <SupportBlock {...SUPPORT_BLOCK_DATA} image='/support.png' animate={animateSuppoprtBlock}/>
       <div id='download' ref={downloadsTriggerRef} style={{ height: '1px' }}/>
-      <DownloadBlock {...DOWNLOAD_BLOCK_DATA} animate={animateDownloads}/>
+      <DownloadBlock {...DOWNLOAD_BLOCK_DATA} animate={animateDownloads} downloadLink='/files/FormWater_Setup_1.1.0.exe'/>
       <div id='contacts' ref={contactsTriggerRef} style={{ height: '1px' }}/>
       <ContactForm {...CONTACT_FORM_DATA} animate={animateContacts}/>
+
+      <ModalWindow opened={showModal} onClose={() => setShowModal(false)} >
+        <StyledFunctionsList>
+          {MODAL_FUNCTIONS?.map(f => <StyledProductFunction>
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.5 15.75H12V12.75H13.5C13.925 12.75 14.2812 12.6062 14.5687 12.3187C14.8562 12.0312 15 11.675 15 11.25V9.75C15 9.325 14.8562 8.96875 14.5687 8.68125C14.2812 8.39375 13.925 8.25 13.5 8.25H10.5V15.75ZM12 11.25V9.75H13.5V11.25H12ZM16.5 15.75H19.5C19.925 15.75 20.2812 15.6062 20.5687 15.3187C20.8562 15.0312 21 14.675 21 14.25V9.75C21 9.325 20.8562 8.96875 20.5687 8.68125C20.2812 8.39375 19.925 8.25 19.5 8.25H16.5V15.75ZM18 14.25V9.75H19.5V14.25H18ZM22.5 15.75H24V12.75H25.5V11.25H24V9.75H25.5V8.25H22.5V15.75ZM9 24C8.175 24 7.46875 23.7063 6.88125 23.1188C6.29375 22.5312 6 21.825 6 21V3C6 2.175 6.29375 1.46875 6.88125 0.88125C7.46875 0.29375 8.175 0 9 0H27C27.825 0 28.5312 0.29375 29.1188 0.88125C29.7063 1.46875 30 2.175 30 3V21C30 21.825 29.7063 22.5312 29.1188 23.1188C28.5312 23.7063 27.825 24 27 24H9ZM9 21H27V3H9V21ZM3 30C2.175 30 1.46875 29.7063 0.88125 29.1188C0.29375 28.5312 0 27.825 0 27V6H3V27H24V30H3Z" fill="#9C2D5B"/>
+            </svg>
+              <label>{f}</label>
+          </StyledProductFunction>)}
+        </StyledFunctionsList>
+      </ModalWindow>
     </div>
   );
 }

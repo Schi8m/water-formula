@@ -51,9 +51,10 @@ export const Footer:React.FC<IFooterProps> = ({
 
                 <StyledNavBlock>
                     <StyledMainNav>КОНТАКТЫ</StyledMainNav>
-                    <StyledContacts>Адрес: МОСКВА, РФ</StyledContacts>
-                    <StyledContacts>SUPPORT@FORMULAVODY.TECH</StyledContacts>
-                    <StyledContacts>+7 (495) 000-00-00</StyledContacts>
+                    <StyledContacts>107045, город Москва, Последний пер., д.7</StyledContacts>
+                    <StyledContacts>contact@formwater.ru</StyledContacts>
+                    <StyledContacts>Многоканальная линия: <a href='tel:+7 (800) 700-53-57'>+7 (800) 700-53-57</a><br/>Режим работы: ежедневно, с 8:00 до 22-00 (мск)</StyledContacts>
+                    <StyledContacts>Для получения поддержки: <a href='tel:+7 (962) 905-01-11'>+7 (962) 905-01-11</a><br/>Режим работы: ежедневно, с 10:00 до 18:00 (мск)</StyledContacts>
                 </StyledNavBlock>
             </StyledNavsRow>
         </StyledFooterWrapper>

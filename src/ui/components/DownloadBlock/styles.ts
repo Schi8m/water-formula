@@ -75,7 +75,7 @@ export const StyledDownlaodBlockDescription = styled.span`
     margin-bottom: 73px;
 `
 
-export const StyledDownloadBlockButton = styled.button`
+export const StyledDownloadBlockButton = styled.a`
     border: none;
     outline: none;
     background-color: #20294F;
@@ -95,9 +95,18 @@ export const StyledDownloadBlockButton = styled.button`
     height: 65px;
     width: 370px;
     transition: background-color .3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     cursor: pointer;
 
     &:hover {
         background-color: #244988;
+    }
+
+    @media(max-width: 876px) {
+        width: 100%;
     }
 `
