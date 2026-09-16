@@ -242,7 +242,7 @@ export const StyledCheckBoxDescription = styled.label`
     color: ${COLORS.SECONDARY.TEXT_DARK};
 
     & > a {
-        text-decoration: none;
+        text-decoration: underline;
         color: #244988;
     }
 `
