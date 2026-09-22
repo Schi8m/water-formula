@@ -22,6 +22,7 @@ export const StyledSelect = styled.div.attrs<{
 
     & > label {
         font-family: 'Roboto Condensed', sans-serif;
+        font-stretch: condensed;
         font-weight: 500;
         font-style: Medium;
         font-size: 14px;
@@ -32,7 +33,8 @@ export const StyledSelect = styled.div.attrs<{
     }
 
     & > span {
-         font-family: 'Roboto Condensed', sans-serif;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-stretch: condensed;
         font-weight: 500;
         font-style: Medium;
         font-size: 14px;
@@ -65,6 +67,7 @@ export const StyledOptionsList = styled.div`
 
 export const StyledOption = styled.div`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 14px;

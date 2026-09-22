@@ -160,6 +160,7 @@ export const StyledAboutProductCardTitle = styled.h2`
 
 export const StyledAboutProductCardSubtitle = styled.span`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 400;
     font-style: Regular;
     font-size: 16px;
@@ -176,6 +177,7 @@ export const StyledAboutProductCardSubtitle = styled.span`
 export const StyledAboutProductCardLink = styled.a`
     text-decoration: none;
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 700;
     font-style: Bold;
     font-size: 14px;

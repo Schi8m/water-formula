@@ -44,16 +44,12 @@ export const StyledWindow = styled.div`
    }
 `
 export const StyledModalHeader = styled.div`
-    position: absolute;
     display: flex;
-    top: 0;
-    left: 0;
-
+    margin-top: -16px !important;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding-block: 12px;
-    padding-inline: 16px;
+    margin-bottom: 24px !important;
 
     & > svg {
         cursor: pointer;

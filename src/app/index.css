@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+
 html, body {
     margin: 0;
     padding: 0;
@@ -7,6 +9,9 @@ html, body {
 html {
     scroll-behavior: smooth;
     scroll-padding: 80px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-variation-settings: "wdth" 75;
+
 }
 
 body {
@@ -34,7 +39,7 @@ body {
 }
 
 .main-page {
-    max-width: 1460px;
+    max-width: 1588px;
     display: flex;
     flex-direction: column;
     gap: 80px;

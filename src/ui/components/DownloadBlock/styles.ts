@@ -64,6 +64,7 @@ export const StyledDownloadBlockSubtitle = styled.span`
 
 export const StyledDownlaodBlockDescription = styled.span`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 400;
     font-style: Regular;
     font-size: 16px;
@@ -84,6 +85,7 @@ export const StyledDownloadBlockButton = styled.a`
         4px 4px 4px 0px #E8E0E00D inset;
     border-radius: 12px;
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 700;
     font-style: Bold;
     font-size: 14px;

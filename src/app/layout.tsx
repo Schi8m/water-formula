@@ -1,8 +1,15 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next';
 import './index.css';
-import { Header } from '../ui/components/Header';
 import { Footer } from '../ui/components/Footer';
+import { Roboto_Condensed } from 'next/font/google'
+
+// Важно: в названии используется подчёркивание (_), а не пробел или дефис
+const robotoCondensed = Roboto_Condensed({
+  weight: ['400', '500', '700'], // Указываем нужные веса
+  subsets: ['latin', 'cyrillic'],     // Обязательно указываем подмножества
+  display: 'swap',        // Рекомендуемый параметр для плавной загрузки
+})
 
 export const metadata: Metadata = {
   title: 'Формула воды',
@@ -20,18 +27,10 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-const navs = [
-  {title: 'О продукте', link: '#about-product'},
-  {title: 'Разработчик', link: '#about-developer'},
-  {title: 'Поддержка', link: '#support'},
-  {title: 'Скачать', link: '#download'}
-]
-
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={robotoCondensed.className}>
       <body>
-        <Header routes={navs}/>
         {children}
         <Footer copyright={"© 2026 формула воды\n[ ВСЕ ПРАВА ЗАЩИЩЕНЫ ]\nENGINEERING SOFTWARE CORE"} />
       </body>

@@ -27,7 +27,7 @@ const SLIDE_IN_LEFT = keyframes`
 export const StyledSupportBlockWrapper = styled.div`
     width: 100%;
     display: flex;
-    gap: 27px;
+    gap: 49px;
     justify-content: space-between;
     align-items: center;
     padding-inline: ${SIZES.INDENTS.DESKTOP_PADDINGS}px;
@@ -152,6 +152,7 @@ export const StyledSupportTitle = styled.h1`
 
 export const StyledSupportSubtitle = styled.span`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 18px;
@@ -261,6 +262,7 @@ export const StyledSupportCardTitle = styled.h3`
 
 export const StyledSupportCardSubtitle = styled.span`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 11px;
@@ -271,3 +273,66 @@ export const StyledSupportCardSubtitle = styled.span`
     color: ${COLORS.SECONDARY.TEXT_DARK};
 `
 
+export const StyledFAQRow = styled.div.attrs<{
+    opened?: boolean
+}>(props => ({
+    opened: props?.opened
+}))`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    max-width: 900px;
+    gap: 64px;
+    cursor: pointer;
+
+    & > div {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 16px;
+        max-width: 100%;
+    }
+    & > div > label {
+        vertical-align: top;
+        color: #D4D2D2;
+        font-size: 32px;
+        line-height: 35.2px;
+        font-family: 'Akt', sans-serif;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            line-height: 1.2;
+        }
+    }
+
+    & > svg {
+        transform: ${({opened}) => opened ? css`rotate(90deg)` : css`rotate(0)`};
+        min-width: 32px;
+        max-width: 32px;
+        min-height: 32px;
+        max-height: 32px;
+
+        @media (max-width: 768px) {
+            min-width: 24px;
+            max-width: 24px;
+            min-height: 24px;
+            max-height: 24px;
+        }
+    }
+`
+
+export const StyledDescriptionBlock = styled.div`
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 29.3px !important;
+    color: #D4D2D2;
+    padding-left: 50px;
+    margin-bottom: 32px;
+
+    @media (max-width: 768px) {
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+    }
+`

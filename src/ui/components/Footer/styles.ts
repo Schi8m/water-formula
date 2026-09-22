@@ -43,6 +43,7 @@ export const StyledLogosBlock = styled.div`
 
 export const StyledCopiight = styled.pre`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 11px;
@@ -70,6 +71,7 @@ export const StyledNavBlock = styled.div`
 
 export const StyledMainNav = styled.a`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 700;
     font-style: Bold;
     font-size: 14px;
@@ -83,6 +85,7 @@ export const StyledMainNav = styled.a`
 
 export const StyledSecondaryNav = styled.a`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 11px;
@@ -96,6 +99,7 @@ export const StyledSecondaryNav = styled.a`
 
 export const StyledContacts = styled.div`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 11px;
@@ -118,6 +122,7 @@ export const StyledContacts = styled.div`
 
 export const StyledPhone = styled.a`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 400;
     font-style: Regular;
     font-size: 20px;

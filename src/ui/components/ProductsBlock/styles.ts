@@ -57,6 +57,7 @@ export const StyledProductsBlockTitle = styled.h1`
 
 export const StyledProductsBlockSubtitle = styled.span`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 16px;
@@ -81,6 +82,7 @@ export const StyledProductsCardContent = styled.div.attrs<{
     align-items: center;
     justify-content: space-between;
     gap: 64px;
+    width: 100%;
 
     & > div:first-child {
         animation: ${({animate}) => animate ? css`${SLIDE_IN_TOP} .5s ease-in-out forwards` : 'none'};
@@ -171,6 +173,7 @@ export const StyledProductCard = styled.div`
             padding-block: 8px;
             color: #fff;
             font-family: 'Roboto Condensed', sans-serif;
+            font-stretch: condensed;
             font-weight: 500;
             font-style: Medium;
             font-size: 11px;
@@ -260,6 +263,7 @@ export const StyledProductCardCostTitle = styled.h3`
 export const StyledProductCardCostDescription = styled.span`
     white-space: nowrap;
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
 `
 
 export const StyledFunctionsList = styled.div`
@@ -280,6 +284,7 @@ export const StyledProductFunction = styled.div`
     align-items: flex-start;
     gap: 24px;
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 14px;
@@ -319,6 +324,7 @@ export const StyledProductCardLinkBtn = styled.button`
         4px 4px 4px 0px #E8E0E00D inset;
 
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 700;
     font-style: Bold;
     font-size: 14px;

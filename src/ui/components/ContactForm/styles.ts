@@ -79,6 +79,7 @@ export const StyledContactFormTitle = styled.h1`
 
 export const StyledContactFormSubtitle = styled.span`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 16px;
@@ -97,6 +98,7 @@ export const StyledForm = styled.div`
     display: flex;
     flex-direction: column;
     gap: 32px;
+    width: 100%;
 `
 
 export const FormRow = styled.div`
@@ -104,9 +106,9 @@ export const FormRow = styled.div`
     flex-direction: row;
     gap: 20px;
     width: 100%;
-   @media (max-width: 860px) {
-    flex-direction: column;
-   }
+    @media (max-width: 860px) {
+        flex-direction: column;
+    }
 `
 
 export const StyledSelect = styled.select`
@@ -145,6 +147,7 @@ export const StyledInput = styled.input`
     
     &::placeholder {
         font-family: 'Roboto Condensed', sans-serif;
+        font-stretch: condensed;
         font-weight: 500;
         font-style: Medium;
         font-size: 14px;
@@ -172,6 +175,7 @@ export const StyledTextArea = styled.textarea`
 
     &::placeholder {
         font-family: 'Roboto Condensed', sans-serif;
+        font-stretch: condensed;
         font-weight: 500;
         font-style: Medium;
         font-size: 14px;
@@ -232,6 +236,7 @@ export const StyledCheckbox = styled.div<{ checked: boolean }>`
 
 export const StyledCheckBoxDescription = styled.label`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 11px;
@@ -242,8 +247,11 @@ export const StyledCheckBoxDescription = styled.label`
     color: ${COLORS.SECONDARY.TEXT_DARK};
 
     & > a {
-        text-decoration: underline;
-        color: #244988;
+        text-decoration: none;
+        color: ${COLORS.SECONDARY.TEXT_DARK};
+        &:hover {
+            color: #cacaca;
+        }
     }
 `
 
@@ -258,6 +266,7 @@ export const StyledSendButton = styled.button`
         4px 4px 4px 0px #20294F40,
         4px 4px 4px 0px #E8E0E00D inset;
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 700;
     font-style: Bold;
     font-size: 14px;

@@ -79,6 +79,7 @@ export const StyledAboutDeveloperPartsBlock = styled.div`
 export const StyledAboutDeveloperPart = styled.span`
     flex: 1;
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 400;
     font-style: Regular;
     font-size: 18px;

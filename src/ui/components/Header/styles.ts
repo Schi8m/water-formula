@@ -52,6 +52,7 @@ export const StyledHeaderContent = styled.nav`
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+    padding-inline: 64px;
 
 
     @media (max-width: 860px) {
@@ -81,6 +82,7 @@ export const StyledRoute = styled.a`
     text-transform: uppercase;
     color: ${COLORS.MAIN.TEXT_LIGHT};
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: medium;
     line-height: 1.2;

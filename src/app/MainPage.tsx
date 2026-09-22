@@ -12,7 +12,26 @@ import { useInView } from 'react-intersection-observer';
 import { useRouter } from 'next/navigation';
 import { ModalWindow } from '../ui/components/ModalWindow';
 import { StyledFunctionsList, StyledProductFunction } from '../ui/components/ProductsBlock/styles';
+import { Header } from '../ui/components/Header';
 
+const FAQ = [
+  { title: 'Чем отличается Редактор норм от Редактора шаблонов?', subtitle: 'Редактор норм изменяет нормы водопотребления только для выбранного объекта или класса объектов (например, механизированных прачечных) в текущем проекте, когда Редактор шаблонов меняет глобальные свойства объектов водопотребления во всех проектах.'},
+  { title: 'Как создать свой шаблон объектов водопотребления и для чего?', subtitle: 'Разные шаблоны объектов водопотребления позволяют эффективно использовать объекты водопотребления, которые не указаны в таблице А2 СП 30.13330.2020. Чтобы создать свой собственный шаблон нужно открыть Редактор шаблонов и нажать кнопку "Создать шаблон".'},
+  { title: 'Для чего "Дублировать шаблон"?', subtitle: 'Дублирование шаблонов позволяет моментально создать шаблон на основе текущего, в котором дальше можно переименовывать объекты и менять им нормы (например, это может пригодится для расчётов по СП 30.13330.2016)'},
+  { title: 'На какой период лицензируется программа «Формула воды»?', subtitle: 'На 6 и 12 месяцев'},
+  { title: 'Какие способы защиты лицензии применяются?', subtitle: 'Активация по ключу без доступа к интернету\nЗащита аппаратным ключом локальным или сетевым\nПроверка лицензии через наш удаленный сервер'},
+  { title: 'Зарегистрирована ли «Формула воды» в Роспатент?', subtitle: 'Да, зарегистрирована'},
+  { title: 'Возможна ли поставка лицензий через дилерскую сеть?', subtitle: 'Поставка возможна как прямая от ООО «Идея-Софт» так и через наших официальных партнеров-поставщиков (6 компаний)'},
+  { title: 'В какой срок делается поставка «Формула воды»?', subtitle: 'Прямая поставка 4-7 дней в зависимости от города\nЧерез дилеров от 4 + условия по срокам поставки нашего дилера'},
+  { title: 'Зарегистрирована ли «Формула воды» в реестре российского ПО? ', subtitle: 'В настоящее время завершается процедура регистрации  в реестре'},
+  { title: 'Можно ли приобрести программу «Формула воды» физическим лицам?', subtitle: 'Да, возможно'},
+]
+const navs = [
+  {title: 'О продукте', link: '#about-product'},
+  {title: 'Разработчик', link: '#about-developer'},
+  {title: 'Поддержка', link: '#support'},
+  {title: 'Скачать', link: '#download'}
+]
 
 const MAIN_BANNER_DATA = {
     title: 'Профессиональные расчёты систем ХВС/ГВС',
@@ -42,7 +61,7 @@ const ABOUT_PRODUCTS_BLOCK = {
             icon: (<svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.9 27.1L25.2 15.8L22.35 12.95L13.9 21.4L9.7 17.2L6.85 20.05L13.9 27.1ZM16 40C11.3667 38.8333 7.54167 36.175 4.525 32.025C1.50833 27.875 0 23.2667 0 18.2V6L16 0L32 6V18.2C32 23.2667 30.4917 27.875 27.475 32.025C24.4583 36.175 20.6333 38.8333 16 40ZM16 35.8C19.4667 34.7 22.3333 32.5 24.6 29.2C26.8667 25.9 28 22.2333 28 18.2V8.75L16 4.25L4 8.75V18.2C4 22.2333 5.13333 25.9 7.4 29.2C9.66667 32.5 12.5333 34.7 16 35.8Z" fill="#D4D2D2"/>
             </svg>),
-            title: 'РЕЕСТР ПО',
+            title: 'ДОКУМЕНТАЦИЯ',
             subtitle: 'Соответствует стандартам импортозамещения РФ и актуальным требованиям  СП 30.13330.',
             linkTitle: 'ОЗНАКОМИТЬСЯ',
             linkIcon: (<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +143,7 @@ const CONTACT_FORM_DATA = {
 }
 
 const MODAL_FUNCTIONS = [
-  {title: 'Дистрибутив “Формула воды”', link: '/files/FormWater_Setup_1.1.0.exe', name: 'FormWater_Setup_1.1.0'},
+  // {title: 'Дистрибутив “Формула воды”', link: '/files/FormWater_Setup_1.1.0.exe', name: 'FormWater_Setup_1.1.0'},
   {title: 'Техническая документация', link: undefined, name: ''},
   {title: 'Протокол заседания экспертного совета', link: undefined, name: ''},
   {title: 'Сведения о записи в реестре российского ПО', link: undefined, name: ''},
@@ -207,7 +226,7 @@ export function ClientPage() {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1);
+    }, 0);
 
     return () => clearTimeout(timer);
   }, []);
@@ -231,10 +250,12 @@ export function ClientPage() {
   }
 
   return (
+    <>
+     <Header routes={navs}/>
     <div className='main-page'>
       <MainBanner {...MAIN_BANNER_DATA} image='/main_banner.png' onLeftBtnClick={() => scrollById('products-block')} onRightBtnClick={() => scrollById('download')}/>
       <div id='products-block' ref={productTriggerRef} style={{ height: '1px' }} />
-      <ProductBlock {...PRODUCTS_BLOCK_DATA} animate={animateProductBlock} onLinkBtnClick={() => scrollById('contacts')} downloadLink='/files/presentation.pdf'/>
+      <ProductBlock {...PRODUCTS_BLOCK_DATA} animate={animateProductBlock} onLinkBtnClick={() => scrollById('contacts')} downloadLink='/files/presentation.pdf' />
       <div id='about-product' ref={aboutProductTriggerRef} style={{ height: '1px' }}/>
       <AboutProductBlock
         {...ABOUT_PRODUCTS_BLOCK}
@@ -245,7 +266,7 @@ export function ClientPage() {
       <div id='about-developer' ref={aboutDeveloperTriggerRef} style={{ height: '1px' }}/>
       <AboutDeveloperBlock {...ABOUT_DEVELOP_BLOCK} animate={animateAboutDeveloperBlock}/>
       <div id='support' ref={supportTriggerRef} style={{ height: '1px' }}/>
-      <SupportBlock {...SUPPORT_BLOCK_DATA} image='/support.png' animate={animateSuppoprtBlock}/>
+      <SupportBlock {...SUPPORT_BLOCK_DATA} image='/support.png' animate={animateSuppoprtBlock} faq={FAQ.map(f => ({...f, opened: false}))}/>
       <div id='download' ref={downloadsTriggerRef} style={{ height: '1px' }}/>
       <DownloadBlock {...DOWNLOAD_BLOCK_DATA} animate={animateDownloads} downloadLink='/files/FormWater_Setup_1.1.0.exe'/>
       <div id='contacts' ref={contactsTriggerRef} style={{ height: '1px' }}/>
@@ -262,5 +283,6 @@ export function ClientPage() {
         </StyledFunctionsList>
       </ModalWindow>
     </div>
+    </>
   );
 }

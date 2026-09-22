@@ -68,6 +68,7 @@ export const StyledMainBannerWrapper = styled.div`
 
  export const StyledMainBannerSubtitle = styled.span`
     font-family: 'Roboto Condensed', sans-serif;
+    font-stretch: condensed;
     font-weight: 500;
     font-style: Medium;
     font-size: 18px;
@@ -121,6 +122,7 @@ export const StyledMainBannerWrapper = styled.div`
    height: 65px;
    border-radius: ${ROUNDS.ROUNDS.LARGE}px;
    font-family: 'Roboto Condensed', sans-serif;
+   font-stretch: condensed;
    font-weight: 700;
    font-style: Bold;
    font-size: 14px;
