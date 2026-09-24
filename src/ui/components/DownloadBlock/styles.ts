@@ -46,6 +46,10 @@ export const StyledDownloadBlockContent = styled.div.attrs<{
     opacity: 0;
 
     animation: ${({animate}) => animate ? css`${FLOW_IN} .5s ease-in .2s forwards` : 'none'};
+    @media(max-width: 800px) {
+        animation: none;
+        opacity: 1;
+    }
 `
 
 export const StyledDownloadBlockSubtitle = styled.span`

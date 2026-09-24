@@ -46,6 +46,11 @@ export const StyledAboutProductsCardContent = styled.div.attrs<{
         animation: ${({startAnimation}) => startAnimation ? css`${SLIDE_IN_TOP} .5s ease-in-out .5s forwards` : 'none'};
     }
 
+    & > div {
+        @media(max-width: 800px) {
+            animation: none;
+        }
+    }
     @media (max-width: 1150px) {
         flex-direction: column;
         width: 100%;
@@ -123,6 +128,9 @@ export const StyledProgress = styled.div.attrs<{
         inset: 0;
         width: 0%;
         animation: ${({animate}) => animate ? css`${GROW_POGRESS} .7s ease 1.2s forwards` : 'none'};
+        @media(max-width: 800px) {
+            animation: none;
+        }
     }
 `
 

@@ -150,6 +150,10 @@ export const StyledMainBannerWrapper = styled.div`
     flex: 1;
     opacity: 0;
     animation: ${SLIDE_IN_LEFT} .5s ease-in-out forwards;
+    @media(max-width: 800px) {
+        animation: none;
+        opacity: 1;
+    }
 
    &::before {
       pointer-events: none;
@@ -189,6 +193,10 @@ export const StyledMainBannerWrapper = styled.div`
    flex: 1;
    opacity: 0;
    animation: ${SLIDE_IN_LEFT} .5s ease-in-out forwards;
+   @media(max-width: 800px) {
+        animation: none;
+        opacity: 1;
+    }
 
    &::before {
       pointer-events: none;

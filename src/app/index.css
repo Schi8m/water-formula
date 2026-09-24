@@ -47,6 +47,36 @@ body {
     overflow-x: hidden;
 }
 
+.policy {
+    color: #fff;
+    max-height: 80vh;
+    overflow: auto;
+    max-width: 90vw;
+    line-height: 1.2;
+    font-weight: 400;
+    margin-top: -32px;
+}
+
+.policy h5 {
+    font-size: 20px;
+}
+
+.policy h5:first-child {
+    margin-top: 0;
+}
+
+.policy h6 {
+    font-size: 16px;
+}
+
+.policy ul {
+    list-style: none;
+}
+
+.policy a {
+    color: white;
+}
+
 @media (max-width: 876px) {
     html, body {
         overscroll-behavior: unset;

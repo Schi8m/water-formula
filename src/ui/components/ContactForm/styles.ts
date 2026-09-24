@@ -33,6 +33,8 @@ export const StyledContactFormWrapper = styled.div.attrs<{
 
     @media (max-width: 876px) {
         padding-inline: 16px;
+        animation: none;
+        opacity: 1;
     }
 `
 
@@ -45,6 +47,7 @@ export const StyledContactFormContent = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 64px;
+    position: relative;
 
    @media (max-width: 860px) {
     padding: 24px;
@@ -246,7 +249,7 @@ export const StyledCheckBoxDescription = styled.label`
     text-transform: uppercase;
     color: ${COLORS.SECONDARY.TEXT_DARK};
 
-    & > a {
+    & > span {
         text-decoration: none;
         color: ${COLORS.SECONDARY.TEXT_DARK};
         &:hover {
@@ -288,4 +291,21 @@ export const StyledSendButton = styled.button`
     &:disabled {
         opacity: .6;
     }
+`
+
+export const StyledMessage = styled.div`
+    color: white;
+    font-size: 24px !important;
+    text-align: center;
+    width: 100%;
+`
+
+export const StyledBackdrop = styled.div`
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1C2646;
+    border-radius: 20px;
 `

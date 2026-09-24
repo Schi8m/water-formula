@@ -38,7 +38,10 @@ export const StyledLogosBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 55px;
-    max-width: fit-content;
+
+    @media(max-width: 1000px) {
+        display: none;
+    }
 `
 
 export const StyledCopiight = styled.pre`

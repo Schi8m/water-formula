@@ -104,6 +104,10 @@ export const StyledSupportImgBlock = styled.div.attrs<{
     }
     opacity: 0;
     animation: ${({animate}) => animate ? css`${SLIDE_IN_LEFT} .5s ease-in-out .3s forwards` : 'none'};
+    @media(max-width: 800px) {
+        animation: none;
+        opacity: 1;
+    }
     &::before {
       pointer-events: none;
       content: '';
@@ -186,6 +190,13 @@ export const StyledSupportCards = styled.div.attrs<{
     & > div:last-child {
         opacity: 0;
         animation: ${({animate}) => animate ? css`${SLIDE_IN_RIGHT} .5s ease-in-out .6s forwards` : 'none'};
+    }
+
+    & > div {
+        @media(max-width: 800px) {
+            animation: none;
+            opacity: 1;
+        }
     }
 `
 
@@ -335,4 +346,14 @@ export const StyledDescriptionBlock = styled.div`
         font-size: 14px !important;
         line-height: 1.2 !important;
     }
+`
+
+export const StyledFaqModalScrollContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    max-height: 60vh;
+    overflow: auto;
+    padding-inline-end: 24px;
+
 `

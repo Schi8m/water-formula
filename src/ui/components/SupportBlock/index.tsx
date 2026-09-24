@@ -1,7 +1,7 @@
 'use client'
 
 import type { JSX } from "react/jsx-runtime";
-import { StyledDescriptionBlock, StyledFAQRow, StyledMobileImgWrapper, StyledSupportBlockWrapper, StyledSupportCard, StyledSupportCards, StyledSupportCardSubtitle, StyledSupportCardText, StyledSupportCardTitle, StyledSupportImgBlock, StyledSupportInfoBlock, StyledSupportSubtitle, StyledSupportTitle } from "./styles";
+import { StyledDescriptionBlock, StyledFaqModalScrollContainer, StyledFAQRow, StyledMobileImgWrapper, StyledSupportBlockWrapper, StyledSupportCard, StyledSupportCards, StyledSupportCardSubtitle, StyledSupportCardText, StyledSupportCardTitle, StyledSupportImgBlock, StyledSupportInfoBlock, StyledSupportSubtitle, StyledSupportTitle } from "./styles";
 import { useEffect, useState } from "react";
 import { ModalWindow } from "../ModalWindow";
 
@@ -56,9 +56,9 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
             <StyledSupportInfoBlock animate={animate}>
                 <StyledSupportTitle>{title}</StyledSupportTitle>
                 <StyledSupportSubtitle>{subtitle}</StyledSupportSubtitle>
-                <StyledMobileImgWrapper>
+                {/* <StyledMobileImgWrapper>
                     <img src={image}/>
-                </StyledMobileImgWrapper>
+                </StyledMobileImgWrapper> */}
                 <StyledSupportCards animate={animate}>
                     {cards.map((c, i) => <StyledSupportCard onClick={()=>{
                         if (i === 0) handleDownload(c?.downloadLink, c?.downloadName)
@@ -80,7 +80,7 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
             </StyledSupportImgBlock>
 
             {showFAQModal ? <ModalWindow opened={showFAQModal} onClose={() => setShowFAQModal(false)}>
-                <div style={{ maxWidth: 900, maxHeight: '60vh', overflowY: 'auto' }}>
+                <StyledFaqModalScrollContainer>
                     {faqs.map((f, i) => <>
                     <StyledFAQRow opened={f?.opened} onClick={() => setFaqs(faqs.map(_f => {
                         if (_f?.title === f?.title) return ({..._f, opened: !_f?.opened})
@@ -92,7 +92,7 @@ export const SupportBlock: React.FC<ISupportBlockProps> = ({
                         </svg>
                     </StyledFAQRow>
                     {f?.opened? <StyledDescriptionBlock>{f?.subtitle}</StyledDescriptionBlock>: <></>}</>)}
-                </div>
+                </StyledFaqModalScrollContainer>
             </ModalWindow> : <></>}
         </StyledSupportBlockWrapper>
     )

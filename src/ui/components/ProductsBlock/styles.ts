@@ -96,6 +96,12 @@ export const StyledProductsCardContent = styled.div.attrs<{
         animation: ${({animate}) => animate ? css`${SLIDE_IN_TOP} .5s ease-in-out .5s forwards` : 'none'};
     }
 
+    & > div {
+        @media(max-width: 800px) {
+            animation: none;
+            opacity: 1;
+        }
+    }
     @media (max-width: 1150px) {
         flex-direction: column;
         width: 100%;

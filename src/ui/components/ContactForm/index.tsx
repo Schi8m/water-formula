@@ -1,15 +1,18 @@
 'use client'
 import type React from "react";
-import { FormRow, StyledCheckBoxWrapper, StyledCheckBoxDescription, StyledCheckBoxRow, StyledContactFormContent, StyledContactFormSubtitle, StyledContactFormText, StyledContactFormTitle, StyledContactFormWrapper, StyledForm, StyledInput, StyledSendButton, StyledTextArea, HiddenCheckbox, StyledCheckbox, StyledSelect } from "./styles";
+import { FormRow, StyledCheckBoxWrapper, StyledCheckBoxDescription, StyledCheckBoxRow, StyledContactFormContent, StyledContactFormSubtitle, StyledContactFormText, StyledContactFormTitle, StyledContactFormWrapper, StyledForm, StyledInput, StyledSendButton, StyledTextArea, HiddenCheckbox, StyledCheckbox, StyledSelect, StyledMessage, StyledBackdrop } from "./styles";
 import { useState } from "react";
 import Select from "../Select";
+import { ModalWindow } from "../ModalWindow";
+import { StyledSpinner } from "../Loader/styles";
 
 export interface IContactFormProps {
     title: string;
     subtitle: string;
     sendBtnTitle: string;
     animate?: boolean;
-    onSubmit?: (name?: string, email?: string, version?: string, count?: number, addInfo?: string) => void
+    onSubmit?: (name?: string, email?: string, version?: string, count?: number, addInfo?: string) => Promise<any>;
+    openPolicyModal?: () => void;
 }
 
 export const ContactForm: React.FC<IContactFormProps> = ({
@@ -17,7 +20,8 @@ export const ContactForm: React.FC<IContactFormProps> = ({
     subtitle = '',
     sendBtnTitle = '',
     animate = false,
-    onSubmit
+    onSubmit,
+    openPolicyModal = () => {}
 }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -25,6 +29,18 @@ export const ContactForm: React.FC<IContactFormProps> = ({
     const [count, setCount] = useState('');
     const [additionalInfo, setAdditionalInfo] = useState('');
     const [policyChecked, setPolicyChecked] = useState(false);
+    const [message, setMessage] = useState('');
+    const [showMessage, setShowMessage] = useState(false);
+    const [sending, setSending] = useState(false);
+
+    const clearForm = () => {
+        setName('');
+        setEmail('');
+        setSelectedVersion(undefined);
+        setCount('');
+        setAdditionalInfo('');
+        setSending(false);
+    }
 
     return (
         <StyledContactFormWrapper animate={animate}>
@@ -52,18 +68,36 @@ export const ContactForm: React.FC<IContactFormProps> = ({
                         <StyledCheckBoxWrapper>
                             <HiddenCheckbox />
                             <StyledCheckbox checked={policyChecked} onClick={() => setPolicyChecked(!policyChecked)}/>
-                            <StyledCheckBoxDescription>Я СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ В СООТВЕТСТВИИ С <a
-                                href='/files/Политика обработки ПД_ИдеяСофт.pdf'
-                                download='Политика обработки ПД_ИдеяСофт.pdf'
-                            >ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ</a>.</StyledCheckBoxDescription>
+                            <StyledCheckBoxDescription>Я СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ В СООТВЕТСТВИИ С <span
+                                onClick={openPolicyModal}
+                            >ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ</span>.</StyledCheckBoxDescription>
                         </StyledCheckBoxWrapper>
                     </StyledCheckBoxRow>
                     <StyledSendButton
-                        disabled={!policyChecked}
-                        onClick={() => onSubmit?.(name, email, selectedVersion, parseInt(count), additionalInfo)}
+                        disabled={!policyChecked || sending}
+                        onClick={() => {
+                            setSending(true);
+                            onSubmit?.(name, email, selectedVersion, parseInt(count), additionalInfo).then(res => res.json()).then(data => {
+                            if (data.success) {
+                                setMessage('Ваша заявка успешно отправлена')
+                            } else {
+                                setMessage('Не удалось отправить заявку. Свяжитесь с нами по телефону.')
+                            }
+
+                            setShowMessage(true);
+                            clearForm()
+                        })}
+                        }
                     >{sendBtnTitle}</StyledSendButton>
                 </StyledForm>
+                {sending ? <StyledBackdrop>
+                    <StyledSpinner />
+                </StyledBackdrop> : <></>}
             </StyledContactFormContent>
+
+            <ModalWindow opened={showMessage} onClose={() => {setShowMessage(false); setMessage('')}}>
+                <StyledMessage>{message}</StyledMessage>
+            </ModalWindow>
         </StyledContactFormWrapper>
     )
 }
