@@ -40,6 +40,7 @@ export const ContactForm: React.FC<IContactFormProps> = ({
         setCount('');
         setAdditionalInfo('');
         setSending(false);
+        setPolicyChecked(false);
     }
 
     return (
