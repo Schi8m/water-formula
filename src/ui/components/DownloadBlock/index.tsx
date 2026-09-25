@@ -28,7 +28,7 @@ export const DownloadBlock: React.FC<IDownloadBlockProps> = ({
                 </svg>
                 <StyledDownloadBlockSubtitle>{subtitle}</StyledDownloadBlockSubtitle>
                 <StyledDownlaodBlockDescription>{description}</StyledDownlaodBlockDescription>
-                <StyledDownloadBlockButton href={downloadLink} download='FormWater_Setup_1.1.0.exe'>{btnTitle}</StyledDownloadBlockButton>
+                <StyledDownloadBlockButton href={downloadLink} download='FormWater_Setup_1.1.0.zip'>{btnTitle}</StyledDownloadBlockButton>
             </StyledDownloadBlockContent>
         </StyledDownloadBlockWrapper>
     )

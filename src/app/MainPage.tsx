@@ -283,7 +283,7 @@ export function ClientPage() {
       <div id='support' ref={supportTriggerRef} style={{ height: '1px' }}/>
       <SupportBlock {...SUPPORT_BLOCK_DATA} image='/support.png' animate={animateSuppoprtBlock} faq={FAQ.map(f => ({...f, opened: false}))}/>
       <div id='download' ref={downloadsTriggerRef} style={{ height: '1px' }}/>
-      <DownloadBlock {...DOWNLOAD_BLOCK_DATA} animate={animateDownloads} downloadLink='/files/FormWater_Setup_1.1.0.exe'/>
+      <DownloadBlock {...DOWNLOAD_BLOCK_DATA} animate={animateDownloads} downloadLink='/files/FormWater_Setup_1.1.0.zip'/>
       <div id='contacts' ref={contactsTriggerRef} style={{ height: '1px' }}/>
       <ContactForm {...CONTACT_FORM_DATA} animate={animateContacts} onSubmit={onSubmit} openPolicyModal={() => setShowPolicyModal(true)}/>
 
