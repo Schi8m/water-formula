@@ -77,6 +77,17 @@ body {
     color: white;
 }
 
+.docs-modal > div {
+    margin-top: -16px;
+    margin-bottom: 0 !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+}
+
+.docs-modal > div > div {
+    padding-block: 0 !important;
+}
+
 @media (max-width: 876px) {
     html, body {
         overscroll-behavior: unset;

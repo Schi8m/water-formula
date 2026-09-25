@@ -279,7 +279,7 @@ export const StyledFunctionsList = styled.div`
     margin-bottom: 70px;
 
     @media (max-width: 876px) {
-        gap: 12px;
+        gap: 16px;
         margin-bottom: 20px;
     }
 `
@@ -287,7 +287,7 @@ export const StyledFunctionsList = styled.div`
 export const StyledProductFunction = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     gap: 24px;
     font-family: 'Roboto Condensed', sans-serif;
     font-stretch: condensed;
