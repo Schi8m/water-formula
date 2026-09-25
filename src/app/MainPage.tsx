@@ -144,10 +144,10 @@ const CONTACT_FORM_DATA = {
 
 const MODAL_FUNCTIONS = [
   // {title: 'Дистрибутив “Формула воды”', link: '/files/FormWater_Setup_1.1.0.exe', name: 'FormWater_Setup_1.1.0'},
-  {title: 'Техническая документация', link: undefined, name: ''},
-  {title: 'Протокол заседания экспертного совета', link: undefined, name: ''},
-  {title: 'Сведения о записи в реестре российского ПО', link: undefined, name: ''},
-  {title: 'Сведения о внесении “Формула воды” на сайте Минцифры', link: undefined, name: ''}
+  {title: 'Инструкция по установке', link: '/files/instructin.pdf', name: 'Инструкция по установке'},
+  {title: 'Описание процессов, обеспечивающих поддержание жизненного цикла', link: '/files/process_description.pdf', name: 'Описание процессов, обеспечивающих поддержание жизненного цикла'},
+  {title: 'Описание функциональных характеристик', link: '/files/funcs_descr.pdf', name: 'Описание функциональных характеристик'},
+  {title: 'Руководство по эксплуатации', link: '/files/FAQ.pdf', name: 'Руководство по эксплуатации'}
 ]
 
 export function ClientPage() {
