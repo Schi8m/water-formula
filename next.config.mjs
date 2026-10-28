@@ -1,7 +1,7 @@
 // next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // appDir удален, так как App Router теперь используется по умолчанию
+  allowedDevOrigins: ['formwater.ru'],
   images: {
     remotePatterns: [
       {
@@ -14,7 +14,6 @@ const nextConfig = {
   },
   reactStrictMode: true,
   transpilePackages: ['@fontsource/akt'],
-  // turbopack: {}, // Раскомментируйте, если хотите явно указать пустую конфигурацию
 };
 
 export default nextConfig;
