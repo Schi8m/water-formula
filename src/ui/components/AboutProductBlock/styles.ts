@@ -159,6 +159,7 @@ export const StyledAboutProductCardTitle = styled.h2`
     vertical-align: middle;
     margin-top: 36px;
     color: ${COLORS.MAIN.TEXT_LIGHT};
+    white-space: nowrap;
 
    @media (max-width: 860px) {
     font-size: 20px;
