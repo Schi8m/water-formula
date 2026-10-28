@@ -77,6 +77,19 @@ export const ContactForm: React.FC<IContactFormProps> = ({
                     <StyledSendButton
                         disabled={!policyChecked || sending}
                         onClick={() => {
+                            const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                            if (!name.length) {
+                                setMessage('Имя не должно быть пустым');
+                                setShowMessage(true);
+                                return;
+                            }
+
+                            if (!emailRegEx.test(email)) {
+                                setMessage('Почта указана не верно');
+                                setShowMessage(true);
+                                return;
+                            }
+
                             setSending(true);
                             onSubmit?.(name, email, selectedVersion, parseInt(count), additionalInfo).then(res => res.json()).then(data => {
                             if (data.success) {

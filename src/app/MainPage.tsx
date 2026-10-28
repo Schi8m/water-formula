@@ -13,6 +13,8 @@ import { useRouter } from 'next/navigation';
 import { ModalWindow } from '../ui/components/ModalWindow';
 import { StyledFunctionsList, StyledProductFunction } from '../ui/components/ProductsBlock/styles';
 import { Header } from '../ui/components/Header';
+import CookieConsent from '../ui/components/CookieConsent/CookieConsent';
+import { CookieProvider } from '../ui/components/CookieConsent/CookieContext';
 
 const FAQ = [
   { title: 'Чем отличается Редактор норм от Редактора шаблонов?', subtitle: 'Редактор норм изменяет нормы водопотребления только для выбранного объекта или класса объектов (например, механизированных прачечных) в текущем проекте, когда Редактор шаблонов меняет глобальные свойства объектов водопотребления во всех проектах.'},
@@ -265,7 +267,7 @@ export function ClientPage() {
 
   }
   return (
-    <>
+    <CookieProvider>
      <Header routes={navs}/>
     <div className='main-page'>
       <MainBanner {...MAIN_BANNER_DATA} image='/main_banner.png' onLeftBtnClick={() => scrollById('products-block')} onRightBtnClick={() => scrollById('download')}/>
@@ -587,7 +589,8 @@ export function ClientPage() {
               </p>
             </div>
       </ModalWindow>
+      <CookieConsent />
     </div>
-    </>
+    </CookieProvider>
   );
 }

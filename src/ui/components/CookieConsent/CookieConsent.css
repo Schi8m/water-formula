@@ -1,0 +1,119 @@
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.cookie-banner {
+  background: #fff;
+  color: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.cookie-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cookie-text {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.cookie-link {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cookie-btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.cookie-btn--primary {
+  background: #1a1a1a;
+  color: #fff;
+}
+.cookie-btn--primary:hover {
+  background: #333;
+}
+
+.cookie-btn--secondary {
+  background: transparent;
+  color: #1a1a1a;
+  border-color: #ccc;
+}
+.cookie-btn--secondary:hover {
+  border-color: #1a1a1a;
+}
+
+.cookie-category {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.cookie-category__label {
+  display: flex;
+  gap: 0.75rem;
+  cursor: pointer;
+  align-items: flex-start;
+}
+
+.cookie-category__label input {
+  margin-top: 0.25rem;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.cookie-category__label strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.cookie-category__label p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .cookie-actions {
+    flex-direction: column;
+  }
+  .cookie-btn {
+    width: 100%;
+  }
+}

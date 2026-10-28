@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './index.css';
 import { Footer } from '../ui/components/Footer';
 import { Roboto_Condensed } from 'next/font/google'
+import { YandexMetricaProvider, standardYMInitParameters } from '@artginzburg/next-ym';
 
 // Важно: в названии используется подчёркивание (_), а не пробел или дефис
 const robotoCondensed = Roboto_Condensed({
@@ -31,7 +32,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ru" className={robotoCondensed.className}>
       <body>
-        {children}
+        <YandexMetricaProvider initParameters={standardYMInitParameters} tagID={113847569}>
+          {children}
+        </YandexMetricaProvider>
         <Footer copyright={"© 2026 формула воды\n[ ВСЕ ПРАВА ЗАЩИЩЕНЫ ]\nENGINEERING SOFTWARE CORE"} />
       </body>
     </html>
