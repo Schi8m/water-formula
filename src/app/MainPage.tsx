@@ -249,21 +249,19 @@ export function ClientPage() {
   }
 
   const onSubmit = (name?: string, email?: string, version?: string, count?: number, addInfo?: string) => {
-    return fetch("https://api.web3forms.com/submit", {
+    return fetch("/api/submit-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
       },
       body: JSON.stringify({
-        access_key: "c6c4006e-16cb-4046-b432-64f73c6fb4c8",
-        "Имя / Организация": name ?? 'Не указано',
-        "Почта": email ?? 'Не указана',
-        "Версия поставки": version ?? 'Не выбрана',
-        "Кол-во лицензий": ""+count,
-        "Дополнительная информация": addInfo ?? 'Не указана'
-      })
-    });
+        name: name ?? 'Не указано',
+        email: email ?? 'Не указана',
+        version: version ?? 'Не выбрана',
+        licenses: count ?? 0,
+        message: addInfo ?? 'Не указана',
+      }),
+  });
 
   }
   return (
