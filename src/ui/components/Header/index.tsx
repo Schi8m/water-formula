@@ -59,6 +59,7 @@ export const Header: React.FC<IHeaderProps> = ({
                             href={r?.link}
                             onClick={() => setShowMobileNav(false)}
                         >{r?.title}</StyledRoute>)}
+                        <StyledRoute><a href='tel:+7 (962) 905-01-11'>+7 (962) 905-01-11</a></StyledRoute>
                 </StyledMobileNav> : <></>}
             </StyledHeaderContentWrapper>
         </SyledHeaderWrapper>

@@ -65,8 +65,9 @@ export const StyledMobileNav = styled.div`
     display: flex;
     flex-direction: column;
     top: 81px;
-    right: 0%;
-
+    right: 0;
+    width: 70%;
+    height: 100%;
     background-color: #080E26;
     padding-inline: 32px;
     
@@ -96,6 +97,12 @@ export const StyledRoute = styled.a`
     justify-content: center;
     text-decoration: none;
     transition: all .3s ease;
+
+    & > a {
+        text-decoration: none;
+        color: #244988;
+        font-size: 16px;
+    }
 
     &:hover {
         scale: 1.05;
