@@ -1,9 +1,15 @@
 // src/app/layout.tsx
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './index.css';
 import { Footer } from '../ui/components/Footer';
 import { Roboto_Condensed } from 'next/font/google'
 import { YandexMetricaProvider, standardYMInitParameters } from '@artginzburg/next-ym';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover', // ключевой параметр
+}
 
 // Важно: в названии используется подчёркивание (_), а не пробел или дефис
 const robotoCondensed = Roboto_Condensed({

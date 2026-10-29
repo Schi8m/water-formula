@@ -14,6 +14,7 @@ export const SyledHeaderWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 10;
+    padding-top: env(safe-area-inset-top, 0px);
 
     @media(max-width: 876px) {
         padding-inline: 16px;
